@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ali Imran | Software Engineer | Portfolio</title>
-  <meta name="description" content="Ali Imran — Software Engineer. Portfolio showcasing projects, experience, and blog posts." />
+  <title>Ali Imran | AI Engineer | LLM Systems & Intelligent Automation</title>
+  <meta name="description" content="Ali Imran — AI Engineer building production-grade LLM agents, ML pipelines, and end-to-end intelligent systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -14,7 +14,7 @@
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo">Ali Imran</a>
+      <a href="#" class="nav-logo"><span class="logo-badge">AI</span><span class="logo-name"><span class="logo-hl">A</span>li <span class="logo-hl">I</span>mran</span></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
@@ -33,32 +33,36 @@
   <section class="hero" id="home">
     <div class="hero-container">
       <div class="hero-content">
-        <p class="hero-greeting fade-up">Ali Imran</p>
-        <h1 class="hero-title fade-up">Ali Imran</h1>
-        <p class="hero-subtitle fade-up">Software Engineer | Full Stack Developer & Problem Solver</p>
+        <p class="hero-greeting fade-up">Hi, I'm Ali Imran</p>
+        <h1 class="hero-title fade-up">I architect intelligent<br/>systems that think.</h1>
+        <p class="hero-subtitle fade-up">AI Engineer | LLM Agents, ML Pipelines & End-to-End Automation</p>
         <div class="hero-tags fade-up">
           <div class="tags-track">
-            <span class="tag">React</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">TypeScript</span>
             <span class="tag">Python</span>
-            <span class="tag">PostgreSQL</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">vLLM</span>
+            <span class="tag">SGLang</span>
+            <span class="tag">LLM Inference Optimization</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">RAG</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Vector DBs</span>
+            <span class="tag">GCP</span>
             <span class="tag">Docker</span>
-            <span class="tag">AWS</span>
-            <span class="tag">Express</span>
-            <span class="tag">MongoDB</span>
+            <span class="tag">Multi-Agent</span>
             <!-- duplicated for seamless scroll -->
-            <span class="tag">React</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">TypeScript</span>
             <span class="tag">Python</span>
-            <span class="tag">PostgreSQL</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">vLLM</span>
+            <span class="tag">SGLang</span>
+            <span class="tag">LLM Inference Optimization</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">RAG</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Vector DBs</span>
+            <span class="tag">GCP</span>
             <span class="tag">Docker</span>
-            <span class="tag">AWS</span>
-            <span class="tag">Express</span>
-            <span class="tag">MongoDB</span>
+            <span class="tag">Multi-Agent</span>
           </div>
         </div>
       </div>
@@ -70,32 +74,27 @@
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <span class="code-filename">main.go</span>
+            <span class="code-filename">agent.py</span>
           </div>
-          <pre class="code-body"><code><span class="line-num"> 1</span><span class="kw">package</span> main
+          <pre class="code-body"><code><span class="line-num"> 1</span><span class="kw">from</span> langchain <span class="kw">import</span> <span class="type">Agent</span>, <span class="type">Tool</span>
 <span class="line-num"> 2</span>
-<span class="line-num"> 3</span><span class="kw">type</span> <span class="type">Developer</span> <span class="kw">struct</span> {
-<span class="line-num"> 4</span>    Name     <span class="type">string</span>
-<span class="line-num"> 5</span>    Role     <span class="type">string</span>
-<span class="line-num"> 6</span>    Skills   []<span class="type">string</span>
-<span class="line-num"> 7</span>    Location <span class="type">string</span>
-<span class="line-num"> 8</span>}
-<span class="line-num"> 9</span>
-<span class="line-num">10</span><span class="kw">func</span> <span class="fn">main</span>() {
-<span class="line-num">11</span>    coder := <span class="type">Developer</span>{
-<span class="line-num">12</span>        Name:     <span class="str">"Ali Imran"</span>,
-<span class="line-num">13</span>        Role:     <span class="str">"Software Engineer"</span>,
-<span class="line-num">14</span>        Location: <span class="str">"Pakistan"</span>,
-<span class="line-num">15</span>        Skills: []<span class="type">string</span>{
-<span class="line-num">16</span>            <span class="str">"React"</span>, <span class="str">"Next.js"</span>, <span class="str">"Node.js"</span>,
-<span class="line-num">17</span>            <span class="str">"TypeScript"</span>, <span class="str">"Python"</span>, <span class="str">"PostgreSQL"</span>,
-<span class="line-num">18</span>            <span class="str">"Docker"</span>, <span class="str">"AWS"</span>,
-<span class="line-num">19</span>        },
-<span class="line-num">20</span>    }
-<span class="line-num">21</span>
-<span class="line-num">22</span>    <span class="cmt">// Build amazing things</span>
-<span class="line-num">23</span>    coder.<span class="fn">Deploy</span>()
-<span class="line-num">24</span>}</code></pre>
+<span class="line-num"> 3</span><span class="kw">class</span> <span class="type">AIEngineer</span>:
+<span class="line-num"> 4</span>    name     = <span class="str">"Ali Imran"</span>
+<span class="line-num"> 5</span>    role     = <span class="str">"AI Engineer"</span>
+<span class="line-num"> 6</span>    stack    = [
+<span class="line-num"> 7</span>        <span class="str">"LLM Agents"</span>, <span class="str">"RAG"</span>,
+<span class="line-num"> 8</span>        <span class="str">"ML Pipelines"</span>, <span class="str">"PyTorch"</span>,
+<span class="line-num"> 9</span>        <span class="str">"Multi-Agent Systems"</span>,
+<span class="line-num">10</span>    ]
+<span class="line-num">11</span>
+<span class="line-num">12</span>    <span class="kw">def</span> <span class="fn">build</span>(self, problem):
+<span class="line-num">13</span>        pipeline = self.<span class="fn">design</span>(problem)
+<span class="line-num">14</span>        agents   = self.<span class="fn">orchestrate</span>(pipeline)
+<span class="line-num">15</span>        <span class="kw">return</span> agents.<span class="fn">deploy</span>(scale=<span class="str">"production"</span>)
+<span class="line-num">16</span>
+<span class="line-num">17</span><span class="cmt"># Ship intelligence, not just code</span>
+<span class="line-num">18</span>eng = <span class="type">AIEngineer</span>()
+<span class="line-num">19</span>eng.<span class="fn">build</span>(<span class="str">"your next big idea"</span>)</code></pre>
         </div>
       </div>
     </div>
@@ -105,8 +104,8 @@
   <section class="section projects" id="projects">
     <div class="section-container">
       <div class="section-header fade-up">
-        <h2 class="section-title">Top Projects</h2>
-        <p class="section-subtitle">Curated selection of my best work, ranked by impact.</p>
+        <h2 class="section-title">Featured Systems</h2>
+        <p class="section-subtitle">Production-grade AI systems I've architected, from concept to deployment.</p>
         <a href="#" class="section-link">View All Projects &rarr;</a>
       </div>
       <div class="projects-grid">
@@ -114,14 +113,14 @@
         <div class="project-card fade-up">
           <div class="project-rank">1</div>
           <div class="project-info">
-            <h3 class="project-name">E-Commerce Platform</h3>
-            <p class="project-desc">A full-stack e-commerce platform with real-time inventory, Stripe payments, and an admin dashboard for managing products and orders.</p>
+            <h3 class="project-name">Multi-Agent Orchestration Platform</h3>
+            <p class="project-desc">An enterprise orchestration layer that coordinates specialized LLM agents across complex workflows — handling task decomposition, tool use, memory, and human-in-the-loop escalation at scale.</p>
             <div class="project-tags">
-              <span>Next.js</span><span>TypeScript</span><span>Stripe</span>
+              <span>LangChain</span><span>Python</span><span>Redis</span><span>FastAPI</span>
             </div>
             <div class="project-stats">
-              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg> 48</span>
-              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0zM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM8 12.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z"/></svg> 12</span>
+              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg> 142</span>
+              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0zM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM8 12.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z"/></svg> 28</span>
             </div>
           </div>
         </div>
@@ -129,14 +128,14 @@
         <div class="project-card fade-up">
           <div class="project-rank">2</div>
           <div class="project-info">
-            <h3 class="project-name">DevConnect</h3>
-            <p class="project-desc">A developer social platform with real-time chat, code sharing, collaborative editing, and community-driven Q&A forums.</p>
+            <h3 class="project-name">RAG-Powered Knowledge Engine</h3>
+            <p class="project-desc">End-to-end retrieval-augmented generation system that ingests enterprise documents, builds semantic indices with vector embeddings, and delivers precise, citation-backed answers via a conversational interface.</p>
             <div class="project-tags">
-              <span>React</span><span>Node.js</span><span>Socket.io</span>
+              <span>OpenAI</span><span>Pinecone</span><span>Python</span><span>Next.js</span>
             </div>
             <div class="project-stats">
-              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg> 35</span>
-              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0zM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM8 12.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z"/></svg> 8</span>
+              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg> 89</span>
+              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0zM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM8 12.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z"/></svg> 17</span>
             </div>
           </div>
         </div>
@@ -144,14 +143,14 @@
         <div class="project-card fade-up">
           <div class="project-rank">3</div>
           <div class="project-info">
-            <h3 class="project-name">TaskFlow</h3>
-            <p class="project-desc">A modern project management tool with Kanban boards, sprint planning, team collaboration, and real-time progress tracking.</p>
+            <h3 class="project-name">Predictive ML Pipeline</h3>
+            <p class="project-desc">Automated machine learning pipeline for demand forecasting — featuring data ingestion, feature engineering, model training with PyTorch, and real-time inference served via a containerized API with drift monitoring.</p>
             <div class="project-tags">
-              <span>Next.js</span><span>React</span><span>PostgreSQL</span>
+              <span>PyTorch</span><span>MLflow</span><span>Docker</span><span>AWS SageMaker</span>
             </div>
             <div class="project-stats">
-              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg> 27</span>
-              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0zM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM8 12.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z"/></svg> 6</span>
+              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg> 64</span>
+              <span class="stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0zM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM8 12.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z"/></svg> 11</span>
             </div>
           </div>
         </div>
@@ -164,8 +163,8 @@
     <div class="section-container">
       <div class="section-header fade-up">
         <p class="section-label">Latest Writing</p>
-        <h2 class="section-title">Modern insights from the blog</h2>
-        <p class="section-subtitle">Fresh notes on software engineering, cloud systems, and practical AI — designed to be quick to scan and worth the read.</p>
+        <h2 class="section-title">Thinking out loud on AI engineering</h2>
+        <p class="section-subtitle">Deep dives on LLM architecture, agent design patterns, and building AI systems that survive production.</p>
         <a href="#" class="section-link">Explore All Blogs &rarr;</a>
       </div>
       <div class="blog-grid">
@@ -177,12 +176,12 @@
           </div>
           <div class="blog-card-body">
             <div class="blog-meta">
-              <span class="blog-tag">React</span>
-              <span class="blog-date">Apr 5, 2026</span>
-              <span class="blog-read">4 min read</span>
+              <span class="blog-tag">LLM Agents</span>
+              <span class="blog-date">Apr 2, 2026</span>
+              <span class="blog-read">6 min read</span>
             </div>
-            <h3 class="blog-title">Building Scalable React Applications: Patterns That Actually Work</h3>
-            <p class="blog-excerpt">A practical guide to component composition, state management, and performance patterns for production React apps.</p>
+            <h3 class="blog-title">Why Most LLM Agent Architectures Fail in Production — And How to Fix Them</h3>
+            <p class="blog-excerpt">The gap between a demo agent and a production agent is enormous. Here's the reliability, observability, and fallback framework I use on every build.</p>
             <span class="blog-read-link">Read featured article</span>
           </div>
         </a>
@@ -190,22 +189,22 @@
           <a href="#" class="blog-card small fade-up">
             <div class="blog-card-body">
               <div class="blog-meta">
-                <span class="blog-tag">DevOps</span>
-                <span class="blog-date">Mar 28, 2026</span>
+                <span class="blog-tag">RAG</span>
+                <span class="blog-date">Mar 22, 2026</span>
               </div>
-              <h3 class="blog-title">Docker in Production: Lessons Learned the Hard Way</h3>
-              <p class="blog-excerpt">Common pitfalls and battle-tested strategies for running Docker containers in production environments.</p>
+              <h3 class="blog-title">Beyond Naive RAG: Building Retrieval Systems That Actually Scale</h3>
+              <p class="blog-excerpt">Chunking strategies, hybrid search, re-ranking, and the architecture decisions that separate toy demos from enterprise-grade knowledge systems.</p>
               <span class="blog-read-link">Read &rarr;</span>
             </div>
           </a>
           <a href="#" class="blog-card small fade-up">
             <div class="blog-card-body">
               <div class="blog-meta">
-                <span class="blog-tag">Backend</span>
-                <span class="blog-date">Mar 20, 2026</span>
+                <span class="blog-tag">MLOps</span>
+                <span class="blog-date">Mar 10, 2026</span>
               </div>
-              <h3 class="blog-title">API Design in 2026: REST, GraphQL, and the Rise of tRPC</h3>
-              <p class="blog-excerpt">How modern backend engineers are choosing API paradigms and what the future looks like.</p>
+              <h3 class="blog-title">Deploying ML Models Without the Pain: My Production Playbook</h3>
+              <p class="blog-excerpt">From model registry to canary rollouts — the infrastructure patterns I rely on for shipping ML to production with confidence.</p>
               <span class="blog-read-link">Read &rarr;</span>
             </div>
           </a>
@@ -230,22 +229,22 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
               </div>
               <div>
-                <h3 class="exp-role">Software Engineer</h3>
+                <h3 class="exp-role">AI Engineer</h3>
                 <p class="exp-period">Jan 2025 - Present</p>
               </div>
             </div>
-            <p class="exp-company">TechCorp <span class="exp-sep">|</span></p>
-            <p class="exp-location">Remote</p>
-            <p class="exp-summary">Building scalable web applications and microservices for enterprise clients.</p>
+            <p class="exp-company">Independent / Contract <span class="exp-sep">|</span></p>
+            <p class="exp-location">Remote · Global Clients</p>
+            <p class="exp-summary">Designing and shipping production-grade AI systems for enterprise clients — from LLM-powered agents to full ML pipelines.</p>
             <h4 class="exp-impact-title">Core Impact</h4>
             <ul class="exp-bullets">
-              <li>Developing high-performance web applications using React and Next.js</li>
-              <li>Implementing RESTful APIs and microservices with Node.js and Express</li>
-              <li>Managing cloud infrastructure on AWS with Docker and CI/CD pipelines</li>
-              <li>Collaborating with cross-functional teams to deliver quality products</li>
+              <li>Architected multi-agent orchestration systems handling complex business workflows with tool use, memory, and human-in-the-loop escalation</li>
+              <li>Built end-to-end RAG pipelines ingesting 100K+ documents with hybrid search, re-ranking, and citation-backed responses</li>
+              <li>Deployed ML models to production on AWS SageMaker with automated retraining, drift monitoring, and canary rollouts</li>
+              <li>Delivered intelligent automation solutions reducing manual processes by 60-80% for clients across fintech, healthcare, and logistics</li>
             </ul>
             <div class="exp-tags">
-              <span>React</span><span>Next.js</span><span>Node.js</span><span>TypeScript</span><span>AWS</span><span>Docker</span>
+              <span>LangChain</span><span>OpenAI</span><span>Python</span><span>PyTorch</span><span>AWS</span><span>Docker</span><span>FastAPI</span><span>Pinecone</span>
             </div>
           </div>
         </div>
@@ -258,22 +257,22 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
               </div>
               <div>
-                <h3 class="exp-role">Full Stack Developer</h3>
-                <p class="exp-period">Jun 2023 - Dec 2024</p>
+                <h3 class="exp-role">ML & Automation Engineer</h3>
+                <p class="exp-period">Mar 2023 - Dec 2024</p>
               </div>
             </div>
-            <p class="exp-company">WebStudio <span class="exp-sep">|</span></p>
-            <p class="exp-location">Lahore, Pakistan · On-site</p>
-            <p class="exp-summary">Led development of client-facing web applications and internal tools.</p>
+            <p class="exp-company">DataScale AI <span class="exp-sep">|</span></p>
+            <p class="exp-location">Remote</p>
+            <p class="exp-summary">Led the AI/ML vertical — building data pipelines, training models, and deploying intelligent automation across client products.</p>
             <h4 class="exp-impact-title">Core Impact</h4>
             <ul class="exp-bullets">
-              <li>Architected and built full-stack applications serving 10K+ daily users</li>
-              <li>Implemented real-time features using WebSocket technology</li>
-              <li>Optimized database queries resulting in 40% faster page load times</li>
-              <li>Mentored junior developers and established coding best practices</li>
+              <li>Designed ETL and feature engineering pipelines processing millions of daily events for real-time ML inference</li>
+              <li>Trained and fine-tuned transformer models for domain-specific NLP tasks, achieving 92%+ accuracy on production benchmarks</li>
+              <li>Implemented vector database infrastructure (Pinecone, Weaviate) powering semantic search across enterprise knowledge bases</li>
+              <li>Built automated workflows with n8n and custom Python agents, eliminating ~30 hours/week of manual operational work per client</li>
             </ul>
             <div class="exp-tags">
-              <span>React</span><span>Python</span><span>PostgreSQL</span><span>Redis</span><span>Docker</span><span>Git</span>
+              <span>Python</span><span>PyTorch</span><span>Transformers</span><span>PostgreSQL</span><span>Redis</span><span>n8n</span><span>Weaviate</span><span>MLflow</span>
             </div>
           </div>
         </div>
@@ -286,22 +285,22 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
               </div>
               <div>
-                <h3 class="exp-role">Frontend Developer</h3>
-                <p class="exp-period">Jan 2022 - May 2023</p>
+                <h3 class="exp-role">Software Engineer</h3>
+                <p class="exp-period">Jun 2021 - Feb 2023</p>
               </div>
             </div>
-            <p class="exp-company">PixelCraft <span class="exp-sep">|</span></p>
-            <p class="exp-location">Remote</p>
-            <p class="exp-summary">Designed and developed responsive user interfaces for SaaS products.</p>
+            <p class="exp-company">NovaTech Solutions <span class="exp-sep">|</span></p>
+            <p class="exp-location">On-site</p>
+            <p class="exp-summary">Built backend systems and APIs that later became the foundation for the company's AI-driven product suite.</p>
             <h4 class="exp-impact-title">Core Impact</h4>
             <ul class="exp-bullets">
-              <li>Built responsive, accessible UI components used across 5+ client projects</li>
-              <li>Integrated REST APIs and managed client-side state with Redux</li>
-              <li>Improved Lighthouse scores from 60 to 95+ through performance optimization</li>
-              <li>Applied UI/UX best practices and modern CSS techniques</li>
+              <li>Engineered high-throughput REST and GraphQL APIs serving 50K+ requests/minute with sub-100ms latency</li>
+              <li>Built real-time data ingestion pipelines using Kafka and Python, feeding downstream ML training jobs</li>
+              <li>Designed the microservices architecture that enabled the team to integrate LLM capabilities into existing products</li>
+              <li>Established CI/CD pipelines, containerization standards, and infrastructure-as-code practices across the engineering org</li>
             </ul>
             <div class="exp-tags">
-              <span>JavaScript</span><span>React</span><span>SASS</span><span>TypeScript</span><span>Redux</span><span>Figma</span>
+              <span>Python</span><span>FastAPI</span><span>Kafka</span><span>PostgreSQL</span><span>Docker</span><span>AWS</span><span>Terraform</span><span>GraphQL</span>
             </div>
           </div>
         </div>
@@ -313,8 +312,8 @@
   <section class="section contact" id="contact">
     <div class="section-container">
       <div class="contact-box fade-up">
-        <h2 class="section-title">Let's Work Together</h2>
-        <p class="section-subtitle">Have a project in mind or just want to say hello? Feel free to reach out.</p>
+        <h2 class="section-title">Let's Build Something Intelligent</h2>
+        <p class="section-subtitle">Have an AI project that needs serious engineering? Let's talk architecture, feasibility, and delivery.</p>
         <div class="contact-links">
           <a href="mailto:hello@example.com" class="contact-btn primary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
@@ -336,8 +335,8 @@
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="footer-container">
-      <a href="#" class="footer-logo">Ali</a>
-      <p class="footer-desc">Software Engineer specializing in scalable web applications and modern user experiences.</p>
+      <a href="#" class="footer-logo"><span class="logo-badge">AI</span><span class="logo-name"><span class="logo-hl">A</span>li <span class="logo-hl">I</span>mran</span></a>
+      <p class="footer-desc">AI Engineer building production-grade LLM agents, ML pipelines, and intelligent automation systems.</p>
       <p class="footer-copy">&copy; 2026 Ali Imran. All rights reserved.</p>
     </div>
   </footer>

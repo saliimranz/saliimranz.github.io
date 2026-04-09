@@ -71,6 +71,38 @@
 
   fadeElements.forEach(el => fadeObserver.observe(el));
 
+  // ========== LOGO SLIDE-REVEAL (20s idle auto-trigger) ==========
+  const logoNames = document.querySelectorAll('.logo-name');
+  const logoParents = document.querySelectorAll('.nav-logo, .footer-logo');
+  let logoTimer = null;
+  const IDLE_DELAY = 20000;
+  const REVEAL_DURATION = 2500;
+
+  function showLogoName() {
+    logoNames.forEach(el => el.classList.add('visible'));
+    setTimeout(() => {
+      logoNames.forEach(el => el.classList.remove('visible'));
+      startLogoTimer();
+    }, REVEAL_DURATION);
+  }
+
+  function startLogoTimer() {
+    clearTimeout(logoTimer);
+    logoTimer = setTimeout(showLogoName, IDLE_DELAY);
+  }
+
+  logoParents.forEach(parent => {
+    parent.addEventListener('mouseenter', () => {
+      clearTimeout(logoTimer);
+      logoNames.forEach(el => el.classList.remove('visible'));
+    });
+    parent.addEventListener('mouseleave', () => {
+      startLogoTimer();
+    });
+  });
+
+  startLogoTimer();
+
   // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {

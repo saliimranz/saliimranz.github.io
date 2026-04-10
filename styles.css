@@ -70,10 +70,10 @@ img {
 }
 
 .navbar.scrolled {
-  background: rgba(5, 5, 5, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 var(--border);
+  background: rgba(5, 5, 5, 0.25);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .nav-container {

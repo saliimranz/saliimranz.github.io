@@ -124,6 +124,13 @@ img {
   font-weight: 700;
 }
 
+.logo-sub {
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  vertical-align: baseline;
+}
+
 .nav-logo:hover .logo-name,
 .footer-logo:hover .logo-name,
 .logo-name.visible {

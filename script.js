@@ -71,37 +71,38 @@
 
   fadeElements.forEach(el => fadeObserver.observe(el));
 
-  // ========== LOGO SLIDE-REVEAL (20s idle auto-trigger) ==========
-  const logoNames = document.querySelectorAll('.logo-name');
-  const logoParents = document.querySelectorAll('.nav-logo, .footer-logo');
-  let logoTimer = null;
+  // ========== LOGO SLIDE-REVEAL (independent 20s idle timers) ==========
   const IDLE_DELAY = 20000;
   const REVEAL_DURATION = 2500;
 
-  function showLogoName() {
-    logoNames.forEach(el => el.classList.add('visible'));
-    setTimeout(() => {
-      logoNames.forEach(el => el.classList.remove('visible'));
-      startLogoTimer();
-    }, REVEAL_DURATION);
-  }
+  document.querySelectorAll('.nav-logo, .footer-logo').forEach(parent => {
+    const nameEl = parent.querySelector('.logo-name');
+    let timer = null;
 
-  function startLogoTimer() {
-    clearTimeout(logoTimer);
-    logoTimer = setTimeout(showLogoName, IDLE_DELAY);
-  }
+    function reveal() {
+      nameEl.classList.add('visible');
+      setTimeout(() => {
+        nameEl.classList.remove('visible');
+        startTimer();
+      }, REVEAL_DURATION);
+    }
 
-  logoParents.forEach(parent => {
+    function startTimer() {
+      clearTimeout(timer);
+      timer = setTimeout(reveal, IDLE_DELAY);
+    }
+
     parent.addEventListener('mouseenter', () => {
-      clearTimeout(logoTimer);
-      logoNames.forEach(el => el.classList.remove('visible'));
+      clearTimeout(timer);
+      nameEl.classList.remove('visible');
     });
-    parent.addEventListener('mouseleave', () => {
-      startLogoTimer();
-    });
-  });
 
-  startLogoTimer();
+    parent.addEventListener('mouseleave', () => {
+      startTimer();
+    });
+
+    startTimer();
+  });
 
   // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

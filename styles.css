@@ -103,7 +103,7 @@ img {
   align-items: baseline;
   height: 40px;
   line-height: 40px;
-  padding: 0 12px;
+  padding: 0 11px;
   color: #000;
   background: var(--accent);
   border-radius: 10px;
@@ -114,16 +114,17 @@ img {
 }
 
 .logo-big {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   display: inline-block;
 }
 
 .logo-sm {
   display: inline-block;
-  font-size: 0.55rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 500;
   letter-spacing: 0.04em;
+  color: #166534;
   max-width: 0;
   opacity: 0;
   overflow: hidden;
@@ -156,7 +157,7 @@ img {
 .nav-logo:hover .logo-pill,
 .footer-logo:hover .logo-pill,
 .logo-pill.expanded {
-  padding: 0 16px;
+  padding: 0 14px;
   border-radius: 9999px;
 }
 

@@ -96,54 +96,68 @@ img {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.logo-badge {
+.logo-pill {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
+  align-items: baseline;
   height: 40px;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
+  line-height: 40px;
+  padding: 0 12px;
   color: #000;
   background: var(--accent);
   border-radius: 10px;
-  flex-shrink: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: padding 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              border-radius 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo-name {
+.logo-big {
+  font-size: 1.1rem;
+  font-weight: 800;
   display: inline-block;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  overflow: hidden;
+}
+
+.logo-sm {
+  display: inline-block;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   max-width: 0;
   opacity: 0;
-  transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.logo-hl {
-  color: var(--accent);
-  font-weight: 700;
-}
-
-.logo-sub {
-  font-size: 0.55em;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  overflow: hidden;
   vertical-align: baseline;
+  transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-logo:hover .logo-name,
-.footer-logo:hover .logo-name,
-.logo-name.visible {
-  max-width: 120px;
+.logo-gap {
+  display: inline-block;
+  width: 4.5px;
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-logo:hover .logo-sm,
+.footer-logo:hover .logo-sm,
+.logo-pill.expanded .logo-sm {
+  max-width: 50px;
   opacity: 1;
+}
+
+.nav-logo:hover .logo-gap,
+.footer-logo:hover .logo-gap,
+.logo-pill.expanded .logo-gap {
+  max-width: 8px;
+}
+
+.nav-logo:hover .logo-pill,
+.footer-logo:hover .logo-pill,
+.logo-pill.expanded {
+  padding: 0 16px;
+  border-radius: 9999px;
 }
 
 .nav-links {
@@ -809,7 +823,6 @@ img {
 .footer-logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   margin-bottom: 16px;
 }
 

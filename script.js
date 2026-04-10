@@ -76,13 +76,13 @@
   const REVEAL_DURATION = 2500;
 
   document.querySelectorAll('.nav-logo, .footer-logo').forEach(parent => {
-    const nameEl = parent.querySelector('.logo-name');
+    const pill = parent.querySelector('.logo-pill');
     let timer = null;
 
     function reveal() {
-      nameEl.classList.add('visible');
+      pill.classList.add('expanded');
       setTimeout(() => {
-        nameEl.classList.remove('visible');
+        pill.classList.remove('expanded');
         startTimer();
       }, REVEAL_DURATION);
     }
@@ -94,7 +94,7 @@
 
     parent.addEventListener('mouseenter', () => {
       clearTimeout(timer);
-      nameEl.classList.remove('visible');
+      pill.classList.remove('expanded');
     });
 
     parent.addEventListener('mouseleave', () => {

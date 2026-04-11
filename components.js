@@ -236,6 +236,57 @@
 
   window.blogData = blogData;
 
+  // ========== EXPERIENCE DATA ==========
+  const experienceData = {
+    1: {
+      company: 'LiMove Logistics LLC',
+      role: 'Software Engineer',
+      period: 'May 2025 — Present',
+      location: 'Remote · UAE',
+      story: 'When I joined LiMove, their logistics operations relied on manual coordination and spreadsheet-based tracking. Dispatchers were spending hours per day on route planning, and vehicle maintenance was entirely reactive — breakdowns were costing the company hundreds of thousands annually. I was brought in to build the AI infrastructure from scratch. Within months, I shipped a fleet intelligence system that predicts maintenance before failures happen and a route optimization engine that cut delivery times by 22%. The operations team went from firefighting daily crises to running a data-driven logistics operation.',
+      metrics: [
+        { value: '35%', label: 'less vehicle downtime' },
+        { value: '22%', label: 'faster deliveries' },
+        { value: '$800K', label: 'saved annually' },
+      ],
+      projectIds: [4, 5],
+      tags: ['Python', 'IoT', 'PyTorch', 'AWS', 'Kafka', 'OR-Tools', 'PostgreSQL', 'FastAPI', 'Redis'],
+      learned: 'This role taught me that the hardest part of ML in logistics isn\'t the models — it\'s the data pipeline. IoT sensors drop out, GPS drifts, and timestamps conflict. I learned to build systems that are robust to messy, real-world data first, and optimize for accuracy second. I also learned that showing a non-technical operations team a real-time dashboard is worth more than any F1 score.',
+    },
+    2: {
+      company: 'LAAM Technologies',
+      role: 'Software Engineering Intern',
+      period: 'Sep 2024 — Apr 2024',
+      location: 'Remote',
+      story: 'LAAM was scaling its e-commerce platform but struggling with two problems: customer support couldn\'t keep up with product queries, and the recommendation system was basic rule-based matching that wasn\'t driving conversions. I led the AI/ML vertical and built an LLM-powered shopping assistant that handles 70% of product queries autonomously, and a recommendation engine using neural collaborative filtering that lifted click-through rates by 40%. What started as an internship turned into me owning the entire AI stack for the company\'s products.',
+      metrics: [
+        { value: '32%', label: 'higher conversion rate' },
+        { value: '70%', label: 'queries handled by AI' },
+        { value: '40%', label: 'CTR improvement' },
+      ],
+      projectIds: [6, 7],
+      tags: ['LangChain', 'OpenAI', 'Node.js', 'Stripe', 'Python', 'PyTorch', 'Redis', 'PostgreSQL', 'FastAPI'],
+      learned: 'This was where I learned that LLM agents in production need guardrails, not just prompts. The biggest lesson was around payment security in an AI context — I had to completely rethink how the agent interacts with sensitive operations. I also discovered that A/B testing ML systems requires patience; you need statistical significance, not just vibes.',
+    },
+    3: {
+      company: 'CreativeDOT Technologies',
+      role: 'Unity Game Developer',
+      period: 'Sep 2022 — Apr 2023',
+      location: 'On-site',
+      story: 'I joined CreativeDOT as a Unity game developer, but the company was pivoting toward AI-driven content tools. I saw the opportunity and built the backend infrastructure that would power their AI products — from automated content pipelines that increased output 10x to a brand voice AI that achieved 91% consistency scores. By the time I left, the systems I built were the foundation of their entire product suite, and three creative teams were using the Brand Voice AI daily.',
+      metrics: [
+        { value: '10x', label: 'content output increase' },
+        { value: '91%', label: 'brand voice accuracy' },
+        { value: '65%', label: 'cost reduction' },
+      ],
+      projectIds: [8, 9],
+      tags: ['OpenAI', 'Python', 'n8n', 'PostgreSQL', 'Transformers', 'FastAPI', 'Docker'],
+      learned: 'This was my transition from traditional development to AI engineering. The biggest takeaway was that fine-tuning with limited data (we only had ~5K brand-specific examples) requires creative solutions — data augmentation, curriculum learning, and knowing when to stop training. I also learned that the best AI products are the ones that feel invisible to the end user.',
+    },
+  };
+
+  window.experienceData = experienceData;
+
   // ========== CAROUSEL HELPERS ==========
   function renderCarousel(media) {
     if (!media || media.length === 0) {
@@ -323,47 +374,51 @@
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
     });
 
+    // Reusable: open a project modal by ID
+    function openProjectModal(id) {
+      const p = projectData[id];
+      if (!p) return;
+
+      gallery.innerHTML = renderCarousel(p.media);
+      initCarousel(gallery);
+
+      const tagsHtml = p.tags.map(t => `<span>${t}</span>`).join('');
+
+      body.innerHTML = `
+        <h2 class="modal-title">${p.title}</h2>
+        <div class="modal-meta">
+          ${ICON_CALENDAR} ${p.timeline}
+        </div>
+        <div class="project-tags">${tagsHtml}</div>
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3 class="modal-section-title">Summary</h3>
+            <p>${p.summary}</p>
+          </div>
+          <div class="modal-section">
+            <h3 class="modal-section-title">Impact</h3>
+            <p>${p.impact}</p>
+          </div>
+          <div class="modal-section">
+            <h3 class="modal-section-title">AI Leverage</h3>
+            <p>${p.aiLeverage}</p>
+          </div>
+          <div class="modal-section">
+            <h3 class="modal-section-title">Problems Faced</h3>
+            <p>${p.problems}</p>
+          </div>
+        </div>
+        <a href="${p.link}" target="_blank" class="modal-project-link">Visit Project &rarr;</a>
+      `;
+
+      openModal();
+    }
+
     // Project click handler
     document.querySelectorAll('[data-project-id]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
-        const id = el.getAttribute('data-project-id');
-        const p = projectData[id];
-        if (!p) return;
-
-        gallery.innerHTML = renderCarousel(p.media);
-        initCarousel(gallery);
-
-        const tagsHtml = p.tags.map(t => `<span>${t}</span>`).join('');
-
-        body.innerHTML = `
-          <h2 class="modal-title">${p.title}</h2>
-          <div class="modal-meta">
-            ${ICON_CALENDAR} ${p.timeline}
-          </div>
-          <div class="project-tags">${tagsHtml}</div>
-          <div class="modal-sections">
-            <div class="modal-section">
-              <h3 class="modal-section-title">Summary</h3>
-              <p>${p.summary}</p>
-            </div>
-            <div class="modal-section">
-              <h3 class="modal-section-title">Impact</h3>
-              <p>${p.impact}</p>
-            </div>
-            <div class="modal-section">
-              <h3 class="modal-section-title">AI Leverage</h3>
-              <p>${p.aiLeverage}</p>
-            </div>
-            <div class="modal-section">
-              <h3 class="modal-section-title">Problems Faced</h3>
-              <p>${p.problems}</p>
-            </div>
-          </div>
-          <a href="${p.link}" target="_blank" class="modal-project-link">Visit Project &rarr;</a>
-        `;
-
-        openModal();
+        openProjectModal(el.getAttribute('data-project-id'));
       });
     });
 
@@ -410,6 +465,82 @@
             </a>
           </div>
         `;
+
+        openModal();
+      });
+    });
+
+    // Experience click handler
+    document.querySelectorAll('[data-exp-id]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = el.getAttribute('data-exp-id');
+        const exp = experienceData[id];
+        if (!exp) return;
+
+        gallery.innerHTML = '';
+
+        const metricsHtml = exp.metrics.map(m =>
+          `<div class="modal-metric">
+            <span class="modal-metric-value">${m.value}</span>
+            <span class="modal-metric-label">${m.label}</span>
+          </div>`
+        ).join('');
+
+        const miniCardsHtml = exp.projectIds.map(pid => {
+          const p = projectData[pid];
+          if (!p) return '';
+          const miniTags = p.tags.slice(0, 3).map(t => `<span>${t}</span>`).join('');
+          return `<div class="modal-mini-card" data-mini-project="${pid}">
+            <h4>${p.title}</h4>
+            <p>${p.summary.substring(0, 100)}...</p>
+            <div class="project-tags">${miniTags}</div>
+          </div>`;
+        }).join('');
+
+        const tagsHtml = exp.tags.map(t => `<span>${t}</span>`).join('');
+
+        body.innerHTML = `
+          <div class="modal-exp-header">
+            <div class="modal-exp-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
+            </div>
+            <div>
+              <h2 class="modal-title">${exp.company}</h2>
+              <div class="modal-meta">${exp.role}<span class="modal-exp-sep">·</span>${exp.period}<span class="modal-exp-sep">·</span>${exp.location}</div>
+            </div>
+          </div>
+
+          <div class="modal-sections">
+            <div class="modal-section">
+              <h3 class="modal-section-title">The Story</h3>
+              <p>${exp.story}</p>
+            </div>
+          </div>
+
+          <div class="modal-section-title" style="margin-top:24px">Key Metrics</div>
+          <div class="modal-metrics">${metricsHtml}</div>
+
+          <div class="modal-section-title" style="margin-top:28px">Projects from this Role</div>
+          <div class="modal-mini-projects">${miniCardsHtml}</div>
+
+          <div class="modal-section-title" style="margin-top:28px">Tech Stack</div>
+          <div class="project-tags" style="margin-top:8px">${tagsHtml}</div>
+
+          <div class="modal-sections" style="margin-top:24px">
+            <div class="modal-section">
+              <h3 class="modal-section-title">What I Learned</h3>
+              <p>${exp.learned}</p>
+            </div>
+          </div>
+        `;
+
+        body.querySelectorAll('[data-mini-project]').forEach(card => {
+          card.addEventListener('click', () => {
+            closeModal();
+            setTimeout(() => openProjectModal(card.getAttribute('data-mini-project')), 350);
+          });
+        });
 
         openModal();
       });

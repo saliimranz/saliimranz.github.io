@@ -68,7 +68,7 @@
   // ========== PROJECT DATA ==========
   const projectData = {
     1: {
-      title: 'Multi-Agent Orchestration Platform',
+      title: 'Appointment AI',
       abbr: 'MAO',
       timeline: 'Jan 2025 — Present',
       tags: ['LangChain', 'Python', 'Redis', 'FastAPI'],
@@ -81,7 +81,7 @@
       link: '#',
     },
     2: {
-      title: 'RAG-Powered Knowledge Engine',
+      title: 'Offline Edge Device AI Agent',
       abbr: 'RAG',
       timeline: 'Sep 2024 — Dec 2024',
       tags: ['OpenAI', 'Pinecone', 'Python', 'Next.js'],
@@ -94,7 +94,7 @@
       link: '#',
     },
     3: {
-      title: 'Predictive ML Pipeline',
+      title: 'SGLang Pipeline Project',
       abbr: 'PML',
       timeline: 'May 2024 — Aug 2024',
       tags: ['PyTorch', 'MLflow', 'Docker', 'AWS SageMaker'],
@@ -107,7 +107,7 @@
       link: '#',
     },
     4: {
-      title: 'Fleet Intelligence System',
+      title: 'Multi-branch POS platform',
       abbr: 'FIS',
       timeline: 'Mar 2024 — Jun 2024',
       tags: ['Python', 'IoT', 'PyTorch', 'AWS', 'Kafka'],
@@ -120,7 +120,7 @@
       link: '#',
     },
     5: {
-      title: 'Route Optimization Engine',
+      title: 'ML Pipeline for Facial Recognition and Verification',
       abbr: 'ROE',
       timeline: 'Nov 2023 — Feb 2024',
       tags: ['Python', 'OR-Tools', 'PostgreSQL', 'FastAPI', 'Redis'],
@@ -133,7 +133,33 @@
       link: '#',
     },
     6: {
-      title: 'Conversational Commerce Agent',
+      title: 'Complaint Managment System',
+      abbr: 'ROE',
+      timeline: 'Nov 2023 — Feb 2024',
+      tags: ['Python', 'OR-Tools', 'PostgreSQL', 'FastAPI', 'Redis'],
+      stars: 47, forks: 8,
+      media: [],
+      summary: 'Graph-based optimization system that reduced average delivery times by 22% using constraint-solving algorithms, real-time traffic data, and demand forecasting models.',
+      impact: 'Reduced average delivery time by 22%. Increased daily delivery capacity by 18% without adding vehicles. ROI achieved within 6 weeks of deployment.',
+      aiLeverage: 'Hybrid approach combining Google OR-Tools for constraint optimization with ML-based travel time prediction. Demand clustering for zone-based routing. Real-time re-routing based on traffic feed integration.',
+      problems: 'NP-hard optimization at scale — exact solutions were too slow for 500+ stop routes. Implemented hierarchical decomposition: cluster stops first, then optimize within clusters. Achieved near-optimal solutions in under 30 seconds.',
+      link: '#',
+    },
+    7: {
+      title: 'LiMove WMS APP',
+      abbr: 'ROE',
+      timeline: 'Nov 2023 — Feb 2024',
+      tags: ['Python', 'OR-Tools', 'PostgreSQL', 'FastAPI', 'Redis'],
+      stars: 47, forks: 8,
+      media: [],
+      summary: 'Graph-based optimization system that reduced average delivery times by 22% using constraint-solving algorithms, real-time traffic data, and demand forecasting models.',
+      impact: 'Reduced average delivery time by 22%. Increased daily delivery capacity by 18% without adding vehicles. ROI achieved within 6 weeks of deployment.',
+      aiLeverage: 'Hybrid approach combining Google OR-Tools for constraint optimization with ML-based travel time prediction. Demand clustering for zone-based routing. Real-time re-routing based on traffic feed integration.',
+      problems: 'NP-hard optimization at scale — exact solutions were too slow for 500+ stop routes. Implemented hierarchical decomposition: cluster stops first, then optimize within clusters. Achieved near-optimal solutions in under 30 seconds.',
+      link: '#',
+    },
+    8: {
+      title: 'Partial Refunds Pipeline',
       abbr: 'CCA',
       timeline: 'Jul 2023 — Oct 2023',
       tags: ['LangChain', 'OpenAI', 'Node.js', 'Stripe'],
@@ -145,8 +171,8 @@
       problems: 'Payment security in an LLM context — preventing prompt injection from manipulating transaction amounts. Implemented strict tool-level validation and sandboxed the payment flow outside the LLM\'s control loop.',
       link: '#',
     },
-    7: {
-      title: 'Product Recommendation Engine',
+    9: {
+      title: 'Centralized Customer Management API for Seller Applications',
       abbr: 'PRE',
       timeline: 'Mar 2023 — Jun 2023',
       tags: ['Python', 'PyTorch', 'Redis', 'PostgreSQL', 'FastAPI'],
@@ -158,7 +184,7 @@
       problems: 'Cold-start problem for new users and items. Solved with content-based fallback using item metadata embeddings. Built a progressive profiling system that transitions from content-based to collaborative filtering as user data accumulates.',
       link: '#',
     },
-    8: {
+    10: {
       title: 'Content Generation Pipeline',
       abbr: 'CGP',
       timeline: 'Oct 2022 — Feb 2023',
@@ -171,7 +197,7 @@
       problems: 'Brand voice consistency across different content types. Built a style-scoring model that evaluates generated content against brand guidelines and triggers rewrites when scores drop below threshold.',
       link: '#',
     },
-    9: {
+    11: {
       title: 'Brand Voice AI',
       abbr: 'BVA',
       timeline: 'Jun 2022 — Sep 2022',

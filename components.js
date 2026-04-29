@@ -8,14 +8,14 @@
     { id: 'experience', label: 'Experience',  home: '#experience',        sub: 'index.html#experience' },
     { id: 'projects',   label: 'Projects',    home: 'projects.html',      sub: 'projects.html' },
     { id: 'blog',       label: 'Blog',        home: 'blogs.html',         sub: 'blogs.html' },
-    { id: 'contact',    label: 'Contact',     home: '#contact',           sub: 'index.html#contact' },
+    { id: 'faq',        label: 'FAQ',         home: '#faq',               sub: 'index.html#faq' },
   ];
 
   // ========== RENDER NAVBAR ==========
   window.renderNavbar = function (activePage) {
     const isHome = activePage === 'home';
     const logoHref = isHome ? '#' : 'index.html';
-    const ctaHref = isHome ? '#contact' : 'index.html#contact';
+    const ctaHref = isHome ? '#hire' : 'index.html#hire';
 
     const links = NAV_ITEMS.map(item => {
       const href = isHome ? item.home : item.sub;
@@ -29,7 +29,7 @@
       <ul class="nav-links" id="navLinks">
         ${links}
       </ul>
-      <a href="${ctaHref}" class="nav-cta">Get in Touch</a>
+      <a href="${ctaHref}" class="nav-cta">Hire Me</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>

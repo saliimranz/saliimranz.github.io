@@ -1,0 +1,30 @@
+# Ali Imran — AI Engineer & Automation Consultant
+
+> AI Engineer based in Lahore, Pakistan, building production LLM agents, RAG systems, n8n automations, and Answer Engine Optimization (AEO) implementations for clients worldwide.
+
+## Services
+- **LLM Agent Development**: Multi-agent orchestration, tool use, memory, human-in-the-loop systems
+- **RAG System Engineering**: Production retrieval pipelines with hybrid search, re-ranking, citations
+- **n8n Automation**: End-to-end workflow automation for ops, marketing, sales pipelines
+- **AEO / Answer Engine Optimization**: Schema.org implementation, agentic-commerce readiness, AI search visibility
+- **ML Pipeline Engineering**: Training, deployment, monitoring on AWS/GCP
+
+## Hire Me
+- **Direct contact**: saliimranz12@gmail.com
+- **Upwork**: [profile URL]
+- **Fiverr**: [profile URL]
+- **LinkedIn**: https://linkedin.com/in/saliimranz
+
+## Portfolio
+- [Home](https://saliimranz.github.io/)
+- [GitHub — code samples](https://github.com/saliimranz)
+
+## Background
+- Currently: Software Engineer at LiMove Logistics LLC (Remote, UAE) — May 2025 to present
+- Previously: AI/ML Intern at LAAM Technologies; Backend/Game Dev at CreativeDOT Technologies
+- Specialization: LangChain, vLLM, SGLang, PyTorch, RAG, FastAPI, vector databases, multi-agent systems
+
+## Selected Writing
+- [I Optimized GPTQ Beyond the Paper — Here's the Benchmark](https://saliimranz.github.io/#blog)
+- [Beyond Naive RAG: Building Retrieval Systems That Actually Scale](https://saliimranz.github.io/#blog)
+- [Deploying ML Models Without the Pain: My Production Playbook](https://saliimranz.github.io/#blog)

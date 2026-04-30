@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>The Multi-Agent Pattern Nobody Talks About | Ali Imran</title>
+  <meta name="description" content="Supervisor-worker, debate, and consensus patterns get all the attention. Here's the hierarchical delegation model with typed contracts I actually use in production." />
+  <meta name="author" content="Ali Imran" />
+  <link rel="canonical" href="https://saliimranz.github.io/blogs/multi-agent-pattern.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Multi-Agent Pattern Nobody Talks About" />
+  <meta property="og:description" content="Hierarchical delegation with typed contracts. The pattern I use in production after seeing supervisor-worker fail." />
+  <meta property="og:url" content="https://saliimranz.github.io/blogs/multi-agent-pattern.html" />
+  <meta property="article:published_time" content="2026-02-14" />
+  <meta property="article:author" content="Ali Imran" />
+  <meta property="article:tag" content="Multi-Agent" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Multi-Agent Pattern Nobody Talks About" />
+  <meta name="twitter:description" content="Production multi-agent architecture by Ali Imran." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://saliimranz.github.io/blogs/multi-agent-pattern.html#webpage",
+        "url": "https://saliimranz.github.io/blogs/multi-agent-pattern.html",
+        "name": "The Multi-Agent Pattern Nobody Talks About",
+        "description": "Supervisor-worker, debate, and consensus patterns get all the attention. Here's the hierarchical delegation model with typed contracts I actually use in production.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#website" },
+        "about":     { "@id": "https://saliimranz.github.io/blogs/multi-agent-pattern.html#article" },
+        "breadcrumb": { "@id": "https://saliimranz.github.io/blogs/multi-agent-pattern.html#breadcrumb" },
+        "mainEntity": { "@id": "https://saliimranz.github.io/blogs/multi-agent-pattern.html#article" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://saliimranz.github.io/blogs/multi-agent-pattern.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saliimranz.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saliimranz.github.io/blogs.html" },
+          { "@type": "ListItem", "position": 3, "name": "The Multi-Agent Pattern Nobody Talks About" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://saliimranz.github.io/blogs/multi-agent-pattern.html#article",
+        "headline": "The Multi-Agent Pattern Nobody Talks About",
+        "description": "Supervisor-worker, debate, and consensus patterns get all the attention. Here's the pattern I actually use in production — a hierarchical delegation model with typed contracts.",
+        "url": "https://saliimranz.github.io/blogs/multi-agent-pattern.html",
+        "mainEntityOfPage": { "@id": "https://saliimranz.github.io/blogs/multi-agent-pattern.html#webpage" },
+        "datePublished": "2026-02-14",
+        "dateModified": "2026-02-14",
+        "author":    { "@id": "https://saliimranz.github.io/#person" },
+        "publisher": { "@id": "https://saliimranz.github.io/#person" },
+        "keywords": "multi-agent, agent architecture, hierarchical delegation, typed contracts",
+        "articleSection": "Multi-Agent",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#articles" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <article class="detail-page">
+    <a href="/blogs.html" class="detail-back">&larr; Back to all articles</a>
+
+    <span class="detail-eyebrow">Multi-Agent</span>
+    <h1 class="detail-title">The Multi-Agent Pattern Nobody Talks About</h1>
+
+    <div class="detail-meta">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>February 14, 2026</span>
+      <span class="detail-meta-sep"></span>
+      <span>7 min read</span>
+      <span class="detail-meta-sep"></span>
+      <span>By Ali Imran</span>
+    </div>
+
+    <p class="detail-summary">Supervisor-worker, debate, and consensus patterns get all the attention. Here's the pattern I actually use in production — a hierarchical delegation model with typed contracts between agents. Covers why most multi-agent demos fail at scale and the specific architectural decisions that make the difference.</p>
+
+    <section class="detail-section">
+      <h2>Why supervisor-worker fails at scale</h2>
+      <p>The classic supervisor-worker pattern looks great in a demo: one agent decides, others execute. In production, the supervisor becomes a bottleneck and a single point of failure. Worse, when the supervisor's understanding drifts mid-conversation, every worker downstream inherits the drift. You end up debugging a chain of failures with no clear root cause.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Hierarchical delegation with typed contracts</h2>
+      <p>Treat the agent system like a microservice architecture. Each agent has a strict input contract and a strict output contract — typed, validated at runtime. The agent doesn't see arbitrary natural language from upstream; it sees a structured request matching its schema. Its output is validated before it goes downstream.</p>
+      <p>This sounds boring. It is the difference between a system that survives production and one that doesn't.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>The three-layer model</h2>
+      <ul>
+        <li><strong>Layer 1 — Intent:</strong> One agent owns understanding what the user wants. Output is a structured task spec.</li>
+        <li><strong>Layer 2 — Plan:</strong> Decomposes the task spec into typed sub-tasks. Owns sequencing and dependency graph.</li>
+        <li><strong>Layer 3 — Execute:</strong> Specialized workers, each handling one task type. Each worker is independently testable.</li>
+      </ul>
+      <p>Each layer can fail independently. Each layer can be swapped, tested, or replaced without touching the others.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Validation gates between layers</h2>
+      <p>Between every layer is a validator that checks the typed contract. If validation fails, the system retries with structured error feedback to the previous agent — &ldquo;your output failed schema X at field Y, fix and retry.&rdquo; This pattern catches 80% of the cascading-failure modes that kill naive multi-agent systems.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Why this works in production</h2>
+      <p>You can independently scale each layer based on load. You can A/B test individual agents without rewriting the system. You get observability for free — every layer transition is a trace span. And most importantly, when something breaks, you know exactly which agent broke its contract.</p>
+    </section>
+
+    <div class="detail-cta">
+      <h3>Designing a multi-agent system?</h3>
+      <p>I architect agent systems with typed contracts, validation gates, and per-layer observability.</p>
+      <div class="detail-cta-actions">
+        <a href="/index.html#hire" class="detail-cta-btn primary">Hire Me &rarr;</a>
+        <a href="/blogs.html" class="detail-cta-btn secondary">More Articles</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-root"></div>
+  <div id="modal-root"></div>
+
+  <script src="/components.js"></script>
+  <script>
+    document.getElementById('navbar-root').innerHTML = renderNavbar('blog');
+    document.getElementById('footer-root').innerHTML = renderFooter();
+    document.getElementById('modal-root').innerHTML = renderModal();
+    initModals();
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

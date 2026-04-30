@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Beyond Naive RAG: Building Retrieval Systems That Actually Scale | Ali Imran</title>
+  <meta name="description" content="Chunking strategies, hybrid search, re-ranking, and the architecture decisions that separate toy demos from enterprise-grade RAG systems." />
+  <meta name="author" content="Ali Imran" />
+  <link rel="canonical" href="https://saliimranz.github.io/blogs/beyond-naive-rag.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Beyond Naive RAG: Building Retrieval Systems That Actually Scale" />
+  <meta property="og:description" content="Parent-child chunking, metadata-aware splitting, cross-encoder re-ranking, query transformation. Production RAG patterns." />
+  <meta property="og:url" content="https://saliimranz.github.io/blogs/beyond-naive-rag.html" />
+  <meta property="article:published_time" content="2026-03-22" />
+  <meta property="article:author" content="Ali Imran" />
+  <meta property="article:tag" content="RAG" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Beyond Naive RAG" />
+  <meta name="twitter:description" content="Production RAG architecture patterns by Ali Imran." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://saliimranz.github.io/blogs/beyond-naive-rag.html#webpage",
+        "url": "https://saliimranz.github.io/blogs/beyond-naive-rag.html",
+        "name": "Beyond Naive RAG: Building Retrieval Systems That Actually Scale",
+        "description": "Chunking strategies, hybrid search, re-ranking, and the architecture decisions that separate toy demos from enterprise-grade RAG systems.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#website" },
+        "about":     { "@id": "https://saliimranz.github.io/blogs/beyond-naive-rag.html#article" },
+        "breadcrumb": { "@id": "https://saliimranz.github.io/blogs/beyond-naive-rag.html#breadcrumb" },
+        "mainEntity": { "@id": "https://saliimranz.github.io/blogs/beyond-naive-rag.html#article" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://saliimranz.github.io/blogs/beyond-naive-rag.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saliimranz.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saliimranz.github.io/blogs.html" },
+          { "@type": "ListItem", "position": 3, "name": "Beyond Naive RAG" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://saliimranz.github.io/blogs/beyond-naive-rag.html#article",
+        "headline": "Beyond Naive RAG: Building Retrieval Systems That Actually Scale",
+        "description": "Chunking strategies, hybrid search, re-ranking, and the architecture decisions that separate toy demos from enterprise-grade knowledge systems.",
+        "url": "https://saliimranz.github.io/blogs/beyond-naive-rag.html",
+        "mainEntityOfPage": { "@id": "https://saliimranz.github.io/blogs/beyond-naive-rag.html#webpage" },
+        "datePublished": "2026-03-22",
+        "dateModified": "2026-03-22",
+        "author":    { "@id": "https://saliimranz.github.io/#person" },
+        "publisher": { "@id": "https://saliimranz.github.io/#person" },
+        "keywords": "RAG, retrieval, chunking, hybrid search, re-ranking, query transformation",
+        "articleSection": "RAG",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#articles" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <article class="detail-page">
+    <a href="/blogs.html" class="detail-back">&larr; Back to all articles</a>
+
+    <span class="detail-eyebrow">RAG</span>
+    <h1 class="detail-title">Beyond Naive RAG: Building Retrieval Systems That Actually Scale</h1>
+
+    <div class="detail-meta">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>March 22, 2026</span>
+      <span class="detail-meta-sep"></span>
+      <span>5 min read</span>
+      <span class="detail-meta-sep"></span>
+      <span>By Ali Imran</span>
+    </div>
+
+    <p class="detail-summary">Chunking strategies, hybrid search, re-ranking, and the architecture decisions that separate toy demos from enterprise-grade knowledge systems. This article covers advanced techniques like parent-child chunking, metadata-aware splitting, cross-encoder re-ranking, and query transformation pipelines that dramatically improve retrieval precision at scale.</p>
+
+    <section class="detail-section">
+      <h2>Why naive RAG breaks at scale</h2>
+      <p>The 100-line LangChain demo works because the corpus is small and the questions are easy. Drop it onto 100K real-world documents and watch precision collapse. Naive RAG fails for predictable reasons: chunks lose context, embeddings can't distinguish semantically similar but factually different content, and the LLM hallucinates when retrieval misses.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Chunking is the first lever</h2>
+      <p>Fixed-size chunking ignores semantic boundaries. Parent-child chunking — embed small chunks for retrieval but return larger parent windows to the model — gives you both precision and context. Metadata-aware splitting respects document structure: never split mid-section, never split a code block, attach hierarchical metadata (document &rarr; section &rarr; subsection) to every chunk so retrieval can filter by level.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Hybrid search beats pure vectors</h2>
+      <p>Dense embeddings struggle with rare terms, exact strings, and acronyms. Sparse search (BM25) handles them effortlessly but misses paraphrases. Combine both with reciprocal rank fusion. The cost is one extra index — the gain is meaningful precision improvements on real queries.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Cross-encoder re-ranking is the cheapest win</h2>
+      <p>Retrieve 50 candidates, re-rank with a cross-encoder, return the top 5. Cross-encoders see query and document together — they catch nuances that bi-encoders miss. The latency cost is small relative to the LLM call that follows.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Query transformation closes the gap</h2>
+      <p>Users write questions; documents are written as statements. Decompose the user query into sub-queries, generate hypothetical answers (HyDE), or rewrite for retrieval. This single layer often improves recall more than any embedding model upgrade.</p>
+    </section>
+
+    <div class="detail-cta">
+      <h3>Need a production RAG system?</h3>
+      <p>I build retrieval pipelines that scale beyond toy demos — hybrid search, re-ranking, citation enforcement.</p>
+      <div class="detail-cta-actions">
+        <a href="/index.html#hire" class="detail-cta-btn primary">Hire Me &rarr;</a>
+        <a href="/blogs.html" class="detail-cta-btn secondary">More Articles</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-root"></div>
+  <div id="modal-root"></div>
+
+  <script src="/components.js"></script>
+  <script>
+    document.getElementById('navbar-root').innerHTML = renderNavbar('blog');
+    document.getElementById('footer-root').innerHTML = renderFooter();
+    document.getElementById('modal-root').innerHTML = renderModal();
+    initModals();
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Why Most LLM Agent Architectures Fail in Production | Ali Imran</title>
+  <meta name="description" content="The gap between a demo agent and a production agent is enormous. The reliability, observability, and fallback framework I use on every production LLM agent build." />
+  <meta name="author" content="Ali Imran" />
+  <link rel="canonical" href="https://saliimranz.github.io/blogs/llm-agents-production.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Why Most LLM Agent Architectures Fail in Production" />
+  <meta property="og:description" content="Circuit breakers for tool calls, confidence-gated routing, structured logging, graceful degradation. The production agent framework." />
+  <meta property="og:url" content="https://saliimranz.github.io/blogs/llm-agents-production.html" />
+  <meta property="article:published_time" content="2026-04-02" />
+  <meta property="article:author" content="Ali Imran" />
+  <meta property="article:tag" content="LLM Agents" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Why Most LLM Agent Architectures Fail in Production" />
+  <meta name="twitter:description" content="Production reliability framework for LLM agents by Ali Imran." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://saliimranz.github.io/blogs/llm-agents-production.html#webpage",
+        "url": "https://saliimranz.github.io/blogs/llm-agents-production.html",
+        "name": "Why Most LLM Agent Architectures Fail in Production",
+        "description": "The gap between a demo agent and a production agent is enormous. The reliability, observability, and fallback framework I use on every production LLM agent build.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#website" },
+        "about":     { "@id": "https://saliimranz.github.io/blogs/llm-agents-production.html#article" },
+        "breadcrumb": { "@id": "https://saliimranz.github.io/blogs/llm-agents-production.html#breadcrumb" },
+        "mainEntity": { "@id": "https://saliimranz.github.io/blogs/llm-agents-production.html#article" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://saliimranz.github.io/blogs/llm-agents-production.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saliimranz.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saliimranz.github.io/blogs.html" },
+          { "@type": "ListItem", "position": 3, "name": "Why Most LLM Agent Architectures Fail in Production" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://saliimranz.github.io/blogs/llm-agents-production.html#article",
+        "headline": "Why Most LLM Agent Architectures Fail in Production — And How to Fix Them",
+        "description": "The gap between a demo agent and a production agent is enormous. Most teams build impressive prototypes that crumble under real-world conditions.",
+        "url": "https://saliimranz.github.io/blogs/llm-agents-production.html",
+        "mainEntityOfPage": { "@id": "https://saliimranz.github.io/blogs/llm-agents-production.html#webpage" },
+        "datePublished": "2026-04-02",
+        "dateModified": "2026-04-02",
+        "author":    { "@id": "https://saliimranz.github.io/#person" },
+        "publisher": { "@id": "https://saliimranz.github.io/#person" },
+        "keywords": "LLM Agents, production AI, reliability, observability, circuit breakers",
+        "articleSection": "LLM Agents",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#articles" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <article class="detail-page">
+    <a href="/blogs.html" class="detail-back">&larr; Back to all articles</a>
+
+    <span class="detail-eyebrow">LLM Agents</span>
+    <h1 class="detail-title">Why Most LLM Agent Architectures Fail in Production — And How to Fix Them</h1>
+
+    <div class="detail-meta">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>April 2, 2026</span>
+      <span class="detail-meta-sep"></span>
+      <span>6 min read</span>
+      <span class="detail-meta-sep"></span>
+      <span>By Ali Imran</span>
+    </div>
+
+    <p class="detail-summary">The gap between a demo agent and a production agent is enormous. Most teams build impressive prototypes that crumble under real-world conditions — unreliable tool calls, hallucination cascades, and zero observability. This article breaks down the reliability, observability, and fallback framework I use on every production agent build.</p>
+
+    <section class="detail-section">
+      <h2>The demo-to-production gap</h2>
+      <p>Demo agents work because they live in a controlled environment: clean inputs, expected tool responses, no concurrent users. Production agents fail because none of those assumptions hold. Tools time out. APIs return malformed responses. Users send adversarial inputs. The model hallucinates a tool name that doesn't exist. Every failure mode that &ldquo;rarely&rdquo; happens in a demo will fire many times per day in production.</p>
+      <p>The teams that succeed treat agents as distributed systems first and language models second. Reliability patterns from microservices — circuit breakers, retries with backoff, idempotency keys, dead-letter queues — apply directly.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Pattern 1: Circuit breakers for tool calls</h2>
+      <p>Every external tool the agent calls is a failure boundary. Wrap each tool with a circuit breaker that trips after N consecutive failures and stays open for a cooldown window. While the circuit is open, the agent gets a structured error response it can reason about: &ldquo;the search tool is currently unavailable, fall back to cached results.&rdquo;</p>
+      <p>Without this, a single flaky downstream API can cascade into agent timeouts that take down the entire request budget.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Pattern 2: Confidence-gated routing</h2>
+      <p>Multi-agent systems fail catastrophically when one agent's bad output is treated as ground truth by the next. The fix is a confidence layer between agents: each agent emits a structured response with a confidence score, and downstream agents check it before acting. Below threshold, the request escalates to a fallback path or a human reviewer.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Pattern 3: Structured logging for agent traces</h2>
+      <p>You cannot debug what you cannot see. Every agent action — model call, tool invocation, retry, fallback — needs structured logs with a shared trace ID. The investment pays off the first time an agent does something weird in production and you need to reconstruct exactly what happened.</p>
+      <p>Tools like LangSmith, Langfuse, or rolling your own with OpenTelemetry all work. The choice matters less than the discipline.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Pattern 4: Graceful degradation</h2>
+      <p>The agent should always have a path to <em>some</em> response, even if it's degraded. Cache previous answers, fall back to simpler rule-based logic, return a clear &ldquo;I couldn't answer this&rdquo; with an escalation channel. The worst outcome is a hung request or a confidently wrong answer.</p>
+    </section>
+
+    <div class="detail-cta">
+      <h3>Building production LLM agents?</h3>
+      <p>I architect agent systems with reliability, observability, and fallback baked in from day one.</p>
+      <div class="detail-cta-actions">
+        <a href="/index.html#hire" class="detail-cta-btn primary">Hire Me &rarr;</a>
+        <a href="/blogs.html" class="detail-cta-btn secondary">More Articles</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-root"></div>
+  <div id="modal-root"></div>
+
+  <script src="/components.js"></script>
+  <script>
+    document.getElementById('navbar-root').innerHTML = renderNavbar('blog');
+    document.getElementById('footer-root').innerHTML = renderFooter();
+    document.getElementById('modal-root').innerHTML = renderModal();
+    initModals();
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

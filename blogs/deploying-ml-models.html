@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Deploying ML Models Without the Pain: My Production Playbook | Ali Imran</title>
+  <meta name="description" content="From model registry to canary rollouts — the infrastructure patterns I rely on for shipping ML to production with confidence." />
+  <meta name="author" content="Ali Imran" />
+  <link rel="canonical" href="https://saliimranz.github.io/blogs/deploying-ml-models.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Deploying ML Models Without the Pain" />
+  <meta property="og:description" content="MLflow, FastAPI, drift detection, shadow deployments. Production ML deployment playbook." />
+  <meta property="og:url" content="https://saliimranz.github.io/blogs/deploying-ml-models.html" />
+  <meta property="article:published_time" content="2026-03-10" />
+  <meta property="article:author" content="Ali Imran" />
+  <meta property="article:tag" content="MLOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Deploying ML Models Without the Pain" />
+  <meta name="twitter:description" content="Production ML deployment playbook by Ali Imran." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://saliimranz.github.io/blogs/deploying-ml-models.html#webpage",
+        "url": "https://saliimranz.github.io/blogs/deploying-ml-models.html",
+        "name": "Deploying ML Models Without the Pain: My Production Playbook",
+        "description": "From model registry to canary rollouts — the infrastructure patterns I rely on for shipping ML to production with confidence.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#website" },
+        "about":     { "@id": "https://saliimranz.github.io/blogs/deploying-ml-models.html#article" },
+        "breadcrumb": { "@id": "https://saliimranz.github.io/blogs/deploying-ml-models.html#breadcrumb" },
+        "mainEntity": { "@id": "https://saliimranz.github.io/blogs/deploying-ml-models.html#article" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://saliimranz.github.io/blogs/deploying-ml-models.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saliimranz.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saliimranz.github.io/blogs.html" },
+          { "@type": "ListItem", "position": 3, "name": "Deploying ML Models Without the Pain" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://saliimranz.github.io/blogs/deploying-ml-models.html#article",
+        "headline": "Deploying ML Models Without the Pain: My Production Playbook",
+        "description": "From model registry to canary rollouts — the infrastructure patterns I rely on for shipping ML to production with confidence.",
+        "url": "https://saliimranz.github.io/blogs/deploying-ml-models.html",
+        "mainEntityOfPage": { "@id": "https://saliimranz.github.io/blogs/deploying-ml-models.html#webpage" },
+        "datePublished": "2026-03-10",
+        "dateModified": "2026-03-10",
+        "author":    { "@id": "https://saliimranz.github.io/#person" },
+        "publisher": { "@id": "https://saliimranz.github.io/#person" },
+        "keywords": "MLOps, model deployment, MLflow, canary, drift detection, shadow deployment",
+        "articleSection": "MLOps",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#articles" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <article class="detail-page">
+    <a href="/blogs.html" class="detail-back">&larr; Back to all articles</a>
+
+    <span class="detail-eyebrow">MLOps</span>
+    <h1 class="detail-title">Deploying ML Models Without the Pain: My Production Playbook</h1>
+
+    <div class="detail-meta">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>March 10, 2026</span>
+      <span class="detail-meta-sep"></span>
+      <span>4 min read</span>
+      <span class="detail-meta-sep"></span>
+      <span>By Ali Imran</span>
+    </div>
+
+    <p class="detail-summary">From model registry to canary rollouts — the infrastructure patterns I rely on for shipping ML to production with confidence. Covers MLflow for experiment tracking, Docker-based serving with FastAPI, automated drift detection, shadow deployments, and the monitoring stack that catches issues before users do.</p>
+
+    <section class="detail-section">
+      <h2>Track everything in a model registry</h2>
+      <p>Every model that hits production must be reproducible. MLflow (or W&amp;B Models, or a registry of your choice) gives you a versioned record of: training data hash, hyperparameters, evaluation metrics, and the artifact itself. When something breaks in production, the registry is what lets you roll back to a known-good version in minutes instead of days.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Serve with FastAPI in a Docker container</h2>
+      <p>FastAPI strikes the right balance: fast enough for most workloads, idiomatic Python, automatic OpenAPI docs. Pair it with a lean Docker image and a health-check endpoint that loads the model on startup and reports ready/not-ready cleanly. The boring choice is the right choice here.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Shadow before canary, canary before full</h2>
+      <p>New model? Don't ship it to 100% of traffic. <strong>Shadow deploy</strong> first — the new model runs on real production traffic but its predictions don't reach users. Compare predictions offline. Then <strong>canary</strong> — 5% of traffic. Watch metrics. Then ramp.</p>
+      <p>This pattern catches integration bugs, latency regressions, and prediction drift that benchmarks miss.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Drift detection is non-optional</h2>
+      <p>Models silently degrade as the real-world distribution shifts. Track input feature distributions (KS test, PSI) and prediction distributions over time. Alert when drift exceeds threshold. Most teams discover drift weeks late — instrument it from day one.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>The monitoring trio</h2>
+      <p>Prometheus for metrics (latency, throughput, error rate, prediction distributions). Grafana for dashboards. Sentry or similar for errors. Wire alerts to PagerDuty. The stack is opinionated but every piece earns its place when the on-call page goes off at 3am.</p>
+    </section>
+
+    <div class="detail-cta">
+      <h3>Need an ML deployment pipeline?</h3>
+      <p>I architect production ML systems with monitoring, drift detection, and safe rollout patterns.</p>
+      <div class="detail-cta-actions">
+        <a href="/index.html#hire" class="detail-cta-btn primary">Hire Me &rarr;</a>
+        <a href="/blogs.html" class="detail-cta-btn secondary">More Articles</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-root"></div>
+  <div id="modal-root"></div>
+
+  <script src="/components.js"></script>
+  <script>
+    document.getElementById('navbar-root').innerHTML = renderNavbar('blog');
+    document.getElementById('footer-root').innerHTML = renderFooter();
+    document.getElementById('modal-root').innerHTML = renderModal();
+    initModals();
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

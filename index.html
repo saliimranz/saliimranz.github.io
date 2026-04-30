@@ -132,7 +132,11 @@
           "contactType": "sales",
           "email": "saliimranz12@gmail.com",
           "areaServed": "Worldwide",
-          "availableLanguage": ["English", "Urdu"]
+          "availableLanguage": ["English", "Urdu"],
+          "potentialAction": {
+            "@type": "CommunicateAction",
+            "target": "mailto:saliimranz12@gmail.com"
+          }
         }
       ],
       "sameAs": [
@@ -148,52 +152,61 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "n8n Workflow Automation",
-              "description": "End-to-end n8n automation builds for ops, sales, marketing, and data pipelines. Custom nodes, error handling, monitoring.",
+              "@id": "https://saliimranz.github.io/services/ai-automation.html#service",
+              "name": "AI Workflow Automation",
+              "description": "End-to-end automation builds for ops, sales, marketing, and data pipelines using n8n, Zapier, and Make.com. Custom nodes, multi-step orchestration, LLM integration, error handling, and monitoring.",
               "provider": { "@id": "https://saliimranz.github.io/#person" },
               "serviceType": "Workflow Automation",
-              "areaServed": "Worldwide"
+              "areaServed": "Worldwide",
+              "url": "https://saliimranz.github.io/services/ai-automation.html",
+              "potentialAction": {
+                "@type": "BuyAction",
+                "target": "mailto:saliimranz12@gmail.com?subject=AI%20Automation%20Service%20Inquiry"
+              }
             },
-            "url": "[FILL: Fiverr or Upwork gig URL for n8n]",
+            "url": "https://saliimranz.github.io/services/ai-automation.html",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "45",
+              "maxPrice": "500",
+              "priceCurrency": "USD"
+            },
             "availability": "https://schema.org/InStock"
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "@id": "https://saliimranz.github.io/services/aeo.html#service",
               "name": "Answer Engine Optimization (AEO)",
-              "description": "Make your business discoverable by ChatGPT, Perplexity, Claude, Gemini, and AI agents. Schema.org implementation, sitemap/robots optimization, agentic commerce readiness.",
+              "description": "Make your business discoverable by ChatGPT, Perplexity, Claude, Gemini, and AI agents. Schema.org / JSON-LD implementation, sitemap and robots.txt optimization for AI crawlers, agentic commerce readiness.",
               "provider": { "@id": "https://saliimranz.github.io/#person" },
               "serviceType": "AI Search Optimization",
-              "areaServed": "Worldwide"
+              "areaServed": "Worldwide",
+              "url": "https://saliimranz.github.io/services/aeo.html",
+              "potentialAction": {
+                "@type": "BuyAction",
+                "target": "mailto:saliimranz12@gmail.com?subject=AEO%20Service%20Inquiry"
+              }
             },
-            "url": "[FILL: Fiverr or Upwork gig URL for AEO]",
-            "availability": "https://schema.org/InStock"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "LLM Agent Development",
-              "description": "Production-grade multi-agent systems with tool use, memory, human-in-the-loop. LangChain, custom orchestration, deployment.",
-              "provider": { "@id": "https://saliimranz.github.io/#person" },
-              "serviceType": "AI Development",
-              "areaServed": "Worldwide"
-            },
-            "url": "[FILL: gig URL]",
-            "availability": "https://schema.org/InStock"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "RAG System Engineering",
-              "description": "Retrieval-augmented generation systems with hybrid search, re-ranking, citations. Built for scale and accuracy.",
-              "provider": { "@id": "https://saliimranz.github.io/#person" },
-              "serviceType": "AI Development",
-              "areaServed": "Worldwide"
-            },
-            "url": "[FILL: gig URL]",
+            "url": "https://saliimranz.github.io/services/aeo.html",
+            "priceCurrency": "USD",
+            "priceSpecification": [
+              {
+                "@type": "PriceSpecification",
+                "name": "AEO Audit",
+                "price": "200",
+                "priceCurrency": "USD"
+              },
+              {
+                "@type": "PriceSpecification",
+                "name": "AEO Implementation",
+                "minPrice": "500",
+                "maxPrice": "1500",
+                "priceCurrency": "USD"
+              }
+            ],
             "availability": "https://schema.org/InStock"
           }
         ]
@@ -704,8 +717,8 @@
       <div class="hire-services fade-up">
         <h3 class="hire-services-title">Services Offered</h3>
         <ul class="hire-services-list">
-          <li><strong>AI Workflow Automation</strong> &mdash; production automation for ops, sales, data pipelines using n8n, zapier, make.com</li>
-          <li><strong>Answer Engine Optimization (AEO)</strong> &mdash; make your business visible to ChatGPT, Perplexity, Claude, Gemini</li>
+          <li><strong><a href="/services/ai-automation.html" class="inline-link">AI Workflow Automation</a></strong> &mdash; production automation for ops, sales, data pipelines using n8n, Zapier, Make.com. From $45.</li>
+          <li><strong><a href="/services/aeo.html" class="inline-link">Answer Engine Optimization (AEO)</a></strong> &mdash; make your business visible to ChatGPT, Perplexity, Claude, Gemini. Audits from $200.</li>
         </ul>
       </div>
     </div>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Fine-Tuning vs Prompt Engineering: When Each Wins | Ali Imran</title>
+  <meta name="description" content="A practical decision framework for choosing between fine-tuning a model and crafting better prompts — based on cost, latency, and accuracy trade-offs." />
+  <meta name="author" content="Ali Imran" />
+  <link rel="canonical" href="https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Fine-Tuning vs Prompt Engineering: When Each Wins" />
+  <meta property="og:description" content="Decision framework with real benchmarks. Surprising cases where prompt engineering outperformed fine-tuning." />
+  <meta property="og:url" content="https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html" />
+  <meta property="article:published_time" content="2026-02-28" />
+  <meta property="article:author" content="Ali Imran" />
+  <meta property="article:tag" content="LLMs" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fine-Tuning vs Prompt Engineering" />
+  <meta name="twitter:description" content="Practical decision framework by Ali Imran." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html#webpage",
+        "url": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html",
+        "name": "Fine-Tuning vs Prompt Engineering: When Each Wins",
+        "description": "A practical decision framework for choosing between fine-tuning a model and crafting better prompts — based on cost, latency, and accuracy trade-offs.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#website" },
+        "about":     { "@id": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html#article" },
+        "breadcrumb": { "@id": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html#breadcrumb" },
+        "mainEntity": { "@id": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html#article" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saliimranz.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saliimranz.github.io/blogs.html" },
+          { "@type": "ListItem", "position": 3, "name": "Fine-Tuning vs Prompt Engineering" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html#article",
+        "headline": "Fine-Tuning vs Prompt Engineering: When Each Wins",
+        "description": "A practical decision framework for choosing between fine-tuning a model and crafting better prompts — based on cost, latency, and accuracy trade-offs.",
+        "url": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html",
+        "mainEntityOfPage": { "@id": "https://saliimranz.github.io/blogs/fine-tuning-vs-prompt-engineering.html#webpage" },
+        "datePublished": "2026-02-28",
+        "dateModified": "2026-02-28",
+        "author":    { "@id": "https://saliimranz.github.io/#person" },
+        "publisher": { "@id": "https://saliimranz.github.io/#person" },
+        "keywords": "fine-tuning, prompt engineering, LLM optimization, decision framework",
+        "articleSection": "LLMs",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#articles" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <article class="detail-page">
+    <a href="/blogs.html" class="detail-back">&larr; Back to all articles</a>
+
+    <span class="detail-eyebrow">LLMs</span>
+    <h1 class="detail-title">Fine-Tuning vs Prompt Engineering: When Each Wins</h1>
+
+    <div class="detail-meta">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>February 28, 2026</span>
+      <span class="detail-meta-sep"></span>
+      <span>5 min read</span>
+      <span class="detail-meta-sep"></span>
+      <span>By Ali Imran</span>
+    </div>
+
+    <p class="detail-summary">A practical decision framework for choosing between fine-tuning a model and crafting better prompts — based on cost, latency, and accuracy trade-offs. Includes real benchmarks from production systems where I've tried both approaches, and the surprising cases where prompt engineering outperformed expensive fine-tuning.</p>
+
+    <section class="detail-section">
+      <h2>The default answer: try prompts first</h2>
+      <p>Fine-tuning is expensive in three dimensions: data labeling cost, compute cost, and the operational cost of maintaining a custom model. Prompt engineering costs your time and a few API calls. Always exhaust prompt engineering first — most use cases never need fine-tuning at all.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>When prompt engineering wins</h2>
+      <ul>
+        <li>Behavior you can describe in 200 words</li>
+        <li>Output format constraints (JSON schema, specific structure)</li>
+        <li>Workflows where you control the input variability</li>
+        <li>Use cases where you need to swap models frequently</li>
+        <li>Anything where the underlying knowledge already exists in the base model — you just need to direct it</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>When fine-tuning wins</h2>
+      <ul>
+        <li>Domain-specific style or voice (medical, legal, brand-specific)</li>
+        <li>Latency-critical paths where you need a smaller model to perform like a larger one</li>
+        <li>Cost-sensitive workloads where per-token spend dominates</li>
+        <li>Behavior that's hard to specify in prose but easy to demonstrate with examples</li>
+        <li>Tasks where the model needs new <em>capabilities</em>, not just guidance</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>The decision rule I use</h2>
+      <p>Spend two days on prompt engineering with the strongest model you can afford. If accuracy is below target, gather 100 high-quality examples and try few-shot prompting. If still below target, run a small fine-tune (LoRA on a smaller model) and benchmark against the prompt-engineered baseline. If fine-tuning wins by &gt;10% on accuracy or unlocks meaningful cost savings, ship it. Otherwise, ship the prompt.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Surprising case: prompt won at brand voice</h2>
+      <p>I expected fine-tuning to dominate brand-voice generation. Detailed style guides + 5 brand-specific examples in the system prompt got us to 87% consistency. A LoRA fine-tune got to 91%. The 4% gain wasn't worth the operational complexity for that client. Sometimes the boring choice is the right one.</p>
+    </section>
+
+    <div class="detail-cta">
+      <h3>Choosing between fine-tuning and prompts?</h3>
+      <p>I help teams pick the right approach for their constraints — and ship it.</p>
+      <div class="detail-cta-actions">
+        <a href="/index.html#hire" class="detail-cta-btn primary">Hire Me &rarr;</a>
+        <a href="/blogs.html" class="detail-cta-btn secondary">More Articles</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-root"></div>
+  <div id="modal-root"></div>
+
+  <script src="/components.js"></script>
+  <script>
+    document.getElementById('navbar-root').innerHTML = renderNavbar('blog');
+    document.getElementById('footer-root').innerHTML = renderFooter();
+    document.getElementById('modal-root').innerHTML = renderModal();
+    initModals();
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

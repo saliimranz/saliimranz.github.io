@@ -20,12 +20,17 @@
     navLinks.classList.toggle('open');
   });
 
-  document.querySelectorAll('.nav-link').forEach(link => {
+  document.querySelectorAll('.nav-link:not(.nav-dropdown-toggle), .nav-dropdown-link').forEach(link => {
     link.addEventListener('click', () => {
       navToggle.classList.remove('active');
       navLinks.classList.remove('open');
     });
   });
+
+  // ========== NAV DROPDOWN ==========
+  if (typeof window.initNavDropdown === 'function') {
+    window.initNavDropdown();
+  }
 
   // ========== ACTIVE NAV LINK ON SCROLL ==========
   const sections = document.querySelectorAll('section[id]');

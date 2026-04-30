@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Facial Recognition ML Pipeline — Identity Verification | Ali Imran Case Study</title>
+  <meta name="description" content="ML pipeline for facial recognition with embedding matching, real-time mobile inference, and multi-factor validation. Eliminated fraudulent check-ins, enforced 100% attendance authenticity." />
+  <meta name="author" content="Ali Imran" />
+  <link rel="canonical" href="https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Facial Recognition ML Pipeline Case Study" />
+  <meta property="og:description" content="Embedding-matching ML pipeline with real-time inference and multi-factor identity validation." />
+  <meta property="og:url" content="https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Facial Recognition ML Pipeline" />
+  <meta name="twitter:description" content="Identity verification ML system case study by Ali Imran." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html#webpage",
+        "url": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html",
+        "name": "Facial Recognition ML Pipeline Case Study",
+        "description": "ML pipeline for facial recognition with embedding matching, real-time mobile inference, and multi-factor validation. Eliminated fraudulent check-ins, enforced 100% attendance authenticity.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#website" },
+        "about":     { "@id": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html#creativework" },
+        "breadcrumb": { "@id": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html#breadcrumb" },
+        "mainEntity": { "@id": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html#creativework" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saliimranz.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://saliimranz.github.io/projects.html" },
+          { "@type": "ListItem", "position": 3, "name": "ML Pipeline for Facial Recognition and Verification" }
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html#creativework",
+        "name": "ML Pipeline for Facial Recognition and Verification",
+        "headline": "Facial Recognition ML Pipeline — Identity Verification at LiMove",
+        "description": "Integrated an ML pipeline for facial recognition verification using embedding matching for identity validation in attendance workflows.",
+        "url": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html",
+        "mainEntityOfPage": { "@id": "https://saliimranz.github.io/projects/facial-recognition-ml-pipeline.html#webpage" },
+        "creator": { "@id": "https://saliimranz.github.io/#person" },
+        "author":  { "@id": "https://saliimranz.github.io/#person" },
+        "datePublished": "2023-11-01",
+        "keywords": "Python, FastAPI, embedding matching, facial recognition, mobile inference, identity verification",
+        "about": ["Computer Vision", "Embedding Matching", "Real-time Inference", "Multi-factor Validation"],
+        "isPartOf": { "@id": "https://saliimranz.github.io/#projects" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <article class="detail-page">
+    <a href="/projects.html" class="detail-back">&larr; Back to all projects</a>
+
+    <span class="detail-eyebrow">Computer Vision / ML Pipeline</span>
+    <h1 class="detail-title">ML Pipeline for Facial Recognition and Verification</h1>
+
+    <div class="detail-meta">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Nov 2023 — Feb 2024</span>
+      <span class="detail-meta-sep"></span>
+      <span>LiMove Logistics LLC</span>
+    </div>
+
+    <div class="detail-tags">
+      <span>Python</span><span>OR-Tools</span><span>PostgreSQL</span><span>FastAPI</span><span>Redis</span>
+    </div>
+
+    <p class="detail-summary">Integrated an ML pipeline for facial recognition verification using embedding matching for identity validation in attendance workflows. Combined real-time mobile inference with multi-factor validation (face + time + geolocation) to enforce attendance authenticity.</p>
+
+    <section class="detail-section">
+      <h2>Impact</h2>
+      <p>Eliminated fraudulent check-ins and enforced 100% attendance authenticity through real-time mobile inference and multi-factor validation. Removed the need for manual attendance verification across distributed teams.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>AI Leverage</h2>
+      <p>Embedding-based face matching against a pre-registered employee database. Real-time inference optimized for mobile constraints. Multi-factor validation layer combining face vector similarity, timestamp window enforcement, and geolocation fencing.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Problems Faced</h2>
+      <p>Mobile inference latency on lower-end devices required model quantization and inference graph optimization. Lighting and angle variability needed augmentation strategies during enrollment. False positives in similar-looking employees were addressed by raising similarity thresholds and adding the multi-factor layer.</p>
+    </section>
+
+    <div class="detail-cta">
+      <h3>Need a computer vision system?</h3>
+      <p>I build ML pipelines for identity verification, attendance, and real-time mobile inference at scale.</p>
+      <div class="detail-cta-actions">
+        <a href="/index.html#hire" class="detail-cta-btn primary">Hire Me &rarr;</a>
+        <a href="/projects.html" class="detail-cta-btn secondary">View More Projects</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-root"></div>
+  <div id="modal-root"></div>
+
+  <script src="/components.js"></script>
+  <script>
+    document.getElementById('navbar-root').innerHTML = renderNavbar('projects');
+    document.getElementById('footer-root').innerHTML = renderFooter();
+    document.getElementById('modal-root').innerHTML = renderModal();
+    initModals();
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

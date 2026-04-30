@@ -4,21 +4,47 @@
   const LOGO = '<span class="logo-pill"><span class="logo-big">A</span><span class="logo-sm">li</span><span class="logo-gap"></span><span class="logo-big">I</span><span class="logo-sm">mran</span></span>';
 
   const NAV_ITEMS = [
-    { id: 'home',       label: 'Home',       home: '#home',              sub: 'index.html' },
-    { id: 'experience', label: 'Experience',  home: '#experience',        sub: 'index.html#experience' },
-    { id: 'projects',   label: 'Projects',    home: 'projects.html',      sub: 'projects.html' },
-    { id: 'blog',       label: 'Blog',        home: 'blogs.html',         sub: 'blogs.html' },
-    { id: 'faq',        label: 'FAQ',         home: '#faq',               sub: 'index.html#faq' },
+    { id: 'home',       label: 'Home',        anchor: '#home',        path: '/' },
+    { id: 'experience', label: 'Experience',  anchor: '#experience',  path: '/index.html#experience' },
+    { id: 'projects',   label: 'Projects',    path: '/projects.html' },
+    {
+      id: 'services',
+      label: 'Services',
+      children: [
+        { id: 'ai-automation', label: 'AI Workflow Automation', desc: 'n8n, Zapier, Make.com builds', path: '/services/ai-automation.html' },
+        { id: 'aeo',           label: 'Answer Engine Optimization', desc: 'Schema, AI crawlers, AEO audits', path: '/services/aeo.html' },
+      ],
+    },
+    { id: 'blog',       label: 'Blog',        path: '/blogs.html' },
+    { id: 'faq',        label: 'FAQ',         anchor: '#faq',         path: '/index.html#faq' },
   ];
 
   // ========== RENDER NAVBAR ==========
   window.renderNavbar = function (activePage) {
     const isHome = activePage === 'home';
-    const logoHref = isHome ? '#' : 'index.html';
-    const ctaHref = isHome ? '#hire' : 'index.html#hire';
+    const logoHref = isHome ? '#' : '/';
+    const ctaHref = isHome ? '#hire' : '/index.html#hire';
 
     const links = NAV_ITEMS.map(item => {
-      const href = isHome ? item.home : item.sub;
+      if (item.children) {
+        const childActive = item.children.some(c => c.id === activePage);
+        const parentActive = (item.id === activePage || childActive) ? ' active' : '';
+        const childLinks = item.children.map(c => {
+          const cActive = c.id === activePage ? ' active' : '';
+          const desc = c.desc ? `<span class="nav-dropdown-desc">${c.desc}</span>` : '';
+          return `<li><a href="${c.path}" class="nav-dropdown-link${cActive}"><span class="nav-dropdown-label">${c.label}</span>${desc}</a></li>`;
+        }).join('\n              ');
+        return `<li class="nav-has-dropdown">
+          <button type="button" class="nav-link nav-dropdown-toggle${parentActive}" aria-haspopup="true" aria-expanded="false">
+            ${item.label}
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+              ${childLinks}
+          </ul>
+        </li>`;
+      }
+      const href = (isHome && item.anchor) ? item.anchor : item.path;
       const active = item.id === activePage ? ' active' : '';
       return `<li><a href="${href}" class="nav-link${active}">${item.label}</a></li>`;
     }).join('\n        ');
@@ -37,9 +63,52 @@
   </nav>`;
   };
 
+  // ========== INIT NAV DROPDOWN ==========
+  window.initNavDropdown = function () {
+    document.querySelectorAll('.nav-has-dropdown').forEach(item => {
+      const toggle = item.querySelector('.nav-dropdown-toggle');
+      if (!toggle) return;
+
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.nav-has-dropdown.open').forEach(o => {
+          o.classList.remove('open');
+          const t = o.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-has-dropdown')) {
+        document.querySelectorAll('.nav-has-dropdown.open').forEach(o => {
+          o.classList.remove('open');
+          const t = o.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.nav-has-dropdown.open').forEach(o => {
+          o.classList.remove('open');
+          const t = o.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  };
+
   // ========== RENDER FOOTER ==========
   window.renderFooter = function () {
-    const logoHref = 'index.html';
+    const logoHref = '/';
     return `<footer class="footer">
     <div class="footer-container">
       <a href="${logoHref}" class="footer-logo">${LOGO}</a>
@@ -68,6 +137,7 @@
   // ========== PROJECT DATA ==========
   const projectData = {
     1: {
+      slug: 'appointment-ai',
       title: 'Appointment AI',
       abbr: 'MAO',
       timeline: 'Jan 2025 — Present',
@@ -81,6 +151,7 @@
       link: '#',
     },
     2: {
+      slug: 'offline-edge-ai-agent',
       title: 'Offline Edge Device AI Agent',
       abbr: 'RAG',
       timeline: 'Sep 2024 — Dec 2024',
@@ -94,6 +165,7 @@
       link: '#',
     },
     3: {
+      slug: 'sglang-pipeline',
       title: 'SGLang Pipeline Project',
       abbr: 'PML',
       timeline: 'May 2024 — Aug 2024',
@@ -107,6 +179,7 @@
       link: '#',
     },
     4: {
+      slug: 'multi-branch-pos',
       title: 'Multi-branch POS platform',
       abbr: 'FIS',
       timeline: 'Mar 2024 — Jun 2024',
@@ -120,6 +193,7 @@
       link: '#',
     },
     5: {
+      slug: 'facial-recognition-ml-pipeline',
       title: 'ML Pipeline for Facial Recognition and Verification',
       abbr: 'ROE',
       timeline: 'Nov 2023 — Feb 2024',
@@ -133,6 +207,7 @@
       link: '#',
     },
     6: {
+      slug: 'complaint-management-system',
       title: 'Complaint Managment System',
       abbr: 'ROE',
       timeline: 'Nov 2023 — Feb 2024',
@@ -146,6 +221,7 @@
       link: '#',
     },
     7: {
+      slug: 'limove-wms-app',
       title: 'LiMove WMS APP',
       abbr: 'ROE',
       timeline: 'Nov 2023 — Feb 2024',
@@ -159,6 +235,7 @@
       link: '#',
     },
     8: {
+      slug: 'partial-refunds-pipeline',
       title: 'Partial Refunds Pipeline',
       abbr: 'CCA',
       timeline: 'Jul 2023 — Oct 2023',
@@ -172,6 +249,7 @@
       link: '#',
     },
     9: {
+      slug: 'customer-management-api',
       title: 'Centralized Customer Management API for Seller Applications',
       abbr: 'PRE',
       timeline: 'Mar 2023 — Jun 2023',
@@ -185,6 +263,7 @@
       link: '#',
     },
     10: {
+      slug: 'content-generation-pipeline',
       title: 'Content Generation Pipeline',
       abbr: 'CGP',
       timeline: 'Oct 2022 — Feb 2023',
@@ -198,6 +277,7 @@
       link: '#',
     },
     11: {
+      slug: 'brand-voice-ai',
       title: 'Brand Voice AI',
       abbr: 'BVA',
       timeline: 'Jun 2022 — Sep 2022',
@@ -217,6 +297,7 @@
   // ========== BLOG DATA ==========
   const blogData = {
     1: {
+      slug: 'llm-agents-production',
       title: 'Why Most LLM Agent Architectures Fail in Production — And How to Fix Them',
       tag: 'LLM Agents', date: 'Apr 2, 2026', readTime: '6 min read',
       image: '',
@@ -224,6 +305,7 @@
       links: { medium: '#', github: '#', inspiration: '#', resources: '#' },
     },
     2: {
+      slug: 'beyond-naive-rag',
       title: 'Beyond Naive RAG: Building Retrieval Systems That Actually Scale',
       tag: 'RAG', date: 'Mar 22, 2026', readTime: '5 min read',
       image: '',
@@ -231,6 +313,7 @@
       links: { medium: '#', github: '#', inspiration: '#', resources: '#' },
     },
     3: {
+      slug: 'deploying-ml-models',
       title: 'Deploying ML Models Without the Pain: My Production Playbook',
       tag: 'MLOps', date: 'Mar 10, 2026', readTime: '4 min read',
       image: '',
@@ -238,6 +321,7 @@
       links: { medium: '#', github: '#', inspiration: '#', resources: '#' },
     },
     4: {
+      slug: 'fine-tuning-vs-prompt-engineering',
       title: 'Fine-Tuning vs Prompt Engineering: When Each Wins',
       tag: 'LLMs', date: 'Feb 28, 2026', readTime: '5 min read',
       image: '',
@@ -245,6 +329,7 @@
       links: { medium: '#', github: '#', inspiration: '#', resources: '#' },
     },
     5: {
+      slug: 'multi-agent-pattern',
       title: 'The Multi-Agent Pattern Nobody Talks About',
       tag: 'Multi-Agent', date: 'Feb 14, 2026', readTime: '7 min read',
       image: '',
@@ -252,6 +337,7 @@
       links: { medium: '#', github: '#', inspiration: '#', resources: '#' },
     },
     6: {
+      slug: 'embedding-models-compared',
       title: 'Embedding Models Compared: What Actually Matters for RAG',
       tag: 'Embeddings', date: 'Jan 30, 2026', readTime: '6 min read',
       image: '',
@@ -410,6 +496,11 @@
 
       const tagsHtml = p.tags.map(t => `<span>${t}</span>`).join('');
 
+      const caseStudyHref = p.slug ? `/projects/${p.slug}.html` : null;
+      const caseStudyLink = caseStudyHref
+        ? `<a href="${caseStudyHref}" class="modal-case-study-link">View full case study <span class="arrow">&rarr;</span></a>`
+        : '';
+
       body.innerHTML = `
         <h2 class="modal-title">${p.title}</h2>
         <div class="modal-meta">
@@ -434,7 +525,10 @@
             <p>${p.problems}</p>
           </div>
         </div>
-        <a href="${p.link}" target="_blank" class="modal-project-link">Visit Project &rarr;</a>
+        <div class="modal-actions">
+          ${caseStudyLink}
+          <a href="${p.link}" target="_blank" class="modal-project-link">Visit Project &rarr;</a>
+        </div>
       `;
 
       openModal();
@@ -464,6 +558,11 @@
              </div>`;
         gallery.innerHTML = `<div class="modal-blog-image">${blogImage}</div>`;
 
+        const articleHref = b.slug ? `/blogs/${b.slug}.html` : null;
+        const fullArticleLink = articleHref
+          ? `<a href="${articleHref}" class="modal-case-study-link">Read full article <span class="arrow">&rarr;</span></a>`
+          : '';
+
         body.innerHTML = `
           <h2 class="modal-title">${b.title}</h2>
           <div class="modal-meta">
@@ -472,6 +571,7 @@
             <span>${b.readTime}</span>
           </div>
           <div class="modal-summary"><p>${b.summary}</p></div>
+          ${fullArticleLink ? `<div class="modal-actions">${fullArticleLink}</div>` : ''}
           <div class="modal-links">
             <a href="${b.links.medium}" target="_blank" class="modal-link-btn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>

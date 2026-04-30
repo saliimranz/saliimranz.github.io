@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Embedding Models Compared: What Actually Matters for RAG | Ali Imran</title>
+  <meta name="description" content="Benchmarked 8 embedding models across 3 real-world datasets. The results surprised me — and changed how I build retrieval pipelines." />
+  <meta name="author" content="Ali Imran" />
+  <link rel="canonical" href="https://saliimranz.github.io/blogs/embedding-models-compared.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Embedding Models Compared: What Actually Matters for RAG" />
+  <meta property="og:description" content="OpenAI, Cohere, BGE, E5, and others benchmarked on retrieval precision, latency, cost, and domain transferability." />
+  <meta property="og:url" content="https://saliimranz.github.io/blogs/embedding-models-compared.html" />
+  <meta property="article:published_time" content="2026-01-30" />
+  <meta property="article:author" content="Ali Imran" />
+  <meta property="article:tag" content="Embeddings" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Embedding Models Compared" />
+  <meta name="twitter:description" content="Real-world embedding benchmark by Ali Imran." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://saliimranz.github.io/blogs/embedding-models-compared.html#webpage",
+        "url": "https://saliimranz.github.io/blogs/embedding-models-compared.html",
+        "name": "Embedding Models Compared: What Actually Matters for RAG",
+        "description": "Benchmarked 8 embedding models across 3 real-world datasets. The results surprised me — and changed how I build retrieval pipelines.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#website" },
+        "about":     { "@id": "https://saliimranz.github.io/blogs/embedding-models-compared.html#article" },
+        "breadcrumb": { "@id": "https://saliimranz.github.io/blogs/embedding-models-compared.html#breadcrumb" },
+        "mainEntity": { "@id": "https://saliimranz.github.io/blogs/embedding-models-compared.html#article" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://saliimranz.github.io/blogs/embedding-models-compared.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saliimranz.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saliimranz.github.io/blogs.html" },
+          { "@type": "ListItem", "position": 3, "name": "Embedding Models Compared" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://saliimranz.github.io/blogs/embedding-models-compared.html#article",
+        "headline": "Embedding Models Compared: What Actually Matters for RAG",
+        "description": "I benchmarked 8 embedding models across 3 real-world datasets. The results surprised me — and changed how I build retrieval pipelines.",
+        "url": "https://saliimranz.github.io/blogs/embedding-models-compared.html",
+        "mainEntityOfPage": { "@id": "https://saliimranz.github.io/blogs/embedding-models-compared.html#webpage" },
+        "datePublished": "2026-01-30",
+        "dateModified": "2026-01-30",
+        "author":    { "@id": "https://saliimranz.github.io/#person" },
+        "publisher": { "@id": "https://saliimranz.github.io/#person" },
+        "keywords": "embeddings, OpenAI, Cohere, BGE, E5, RAG, retrieval benchmarks",
+        "articleSection": "Embeddings",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#articles" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <article class="detail-page">
+    <a href="/blogs.html" class="detail-back">&larr; Back to all articles</a>
+
+    <span class="detail-eyebrow">Embeddings</span>
+    <h1 class="detail-title">Embedding Models Compared: What Actually Matters for RAG</h1>
+
+    <div class="detail-meta">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>January 30, 2026</span>
+      <span class="detail-meta-sep"></span>
+      <span>6 min read</span>
+      <span class="detail-meta-sep"></span>
+      <span>By Ali Imran</span>
+    </div>
+
+    <p class="detail-summary">I benchmarked 8 embedding models across 3 real-world datasets. The results surprised me — and changed how I build retrieval pipelines. Covers OpenAI, Cohere, BGE, E5, and others. Evaluates on retrieval precision, latency, cost, and the often-ignored dimension of domain transferability.</p>
+
+    <section class="detail-section">
+      <h2>The benchmark setup</h2>
+      <p>Three datasets covering different domains: technical documentation (~50K chunks), legal contracts (~20K chunks), and customer support transcripts (~80K chunks). Eight models: OpenAI text-embedding-3-small/large, Cohere embed-english-v3, BGE-large-en-v1.5, BGE-M3, E5-mistral-7b-instruct, jina-embeddings-v2-base-en, and a small open-source baseline (all-MiniLM-L6-v2).</p>
+      <p>Metrics: NDCG@10 for precision, p95 latency for speed, $/1M tokens for cost, and domain transfer (training on one dataset, evaluating on another).</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Surprise 1: smaller models held their own</h2>
+      <p>BGE-large-en-v1.5 came within 3% NDCG of the best commercial models on the technical docs dataset, at zero per-call cost when self-hosted. For RAG over corpora you control, the case for paid APIs is weaker than the marketing suggests.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Surprise 2: domain transfer is uneven</h2>
+      <p>Models that dominated technical docs collapsed on legal contracts. The vocabulary distance is doing real damage. Models with broader pre-training (E5-mistral, BGE-M3) transferred better than narrowly-tuned ones — even when the narrow models scored higher on in-domain tests.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Surprise 3: latency varies more than expected</h2>
+      <p>OpenAI's API was the fastest end-to-end despite the network round trip — their batching is excellent. Self-hosted BGE on a single GPU was faster on small batches but degraded on large ones unless you carefully manage VRAM. For latency-sensitive paths, benchmark on your traffic shape, not just throughput.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>What I use now</h2>
+      <p>For client work where they control the corpus and want low ongoing cost: BGE-large or BGE-M3, self-hosted, with a fallback to OpenAI for uncovered queries. For products where speed-to-launch matters: OpenAI text-embedding-3-large. The key insight: <strong>match the model choice to the deployment constraints, not the leaderboard.</strong></p>
+    </section>
+
+    <div class="detail-cta">
+      <h3>Building a retrieval pipeline?</h3>
+      <p>I help teams pick the right embedding stack and build the rest of the RAG infrastructure around it.</p>
+      <div class="detail-cta-actions">
+        <a href="/index.html#hire" class="detail-cta-btn primary">Hire Me &rarr;</a>
+        <a href="/blogs.html" class="detail-cta-btn secondary">More Articles</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-root"></div>
+  <div id="modal-root"></div>
+
+  <script src="/components.js"></script>
+  <script>
+    document.getElementById('navbar-root').innerHTML = renderNavbar('blog');
+    document.getElementById('footer-root').innerHTML = renderFooter();
+    document.getElementById('modal-root').innerHTML = renderModal();
+    initModals();
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

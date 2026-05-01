@@ -182,7 +182,7 @@
       slug: 'multi-branch-pos',
       title: 'Multi-branch POS platform',
       abbr: 'FIS',
-      timeline: 'Mar 2024 — Jun 2024',
+      timeline: 'Feb 2025 — May 2025',
       tags: ['.NET', 'VB.NET', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'WebForms'],
       stars: 53, forks: 9,
       media: [],
@@ -195,78 +195,78 @@
     5: {
       slug: 'facial-recognition-ml-pipeline',
       title: 'ML Pipeline for Facial Recognition and Verification',
-      abbr: 'ROE',
-      timeline: 'Nov 2023 — Feb 2024',
-      tags: ['Python', 'OR-Tools', 'PostgreSQL', 'FastAPI', 'Redis'],
+      abbr: 'FRV',
+      timeline: 'Jan 2026 — Mar 2026',
+      tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Embedding Matching'],
       stars: 47, forks: 8,
       media: [],
-      summary: 'Graph-based optimization system that reduced average delivery times by 22% using constraint-solving algorithms, real-time traffic data, and demand forecasting models.',
-      impact: 'Reduced average delivery time by 22%. Increased daily delivery capacity by 18% without adding vehicles. ROI achieved within 6 weeks of deployment.',
-      aiLeverage: 'Hybrid approach combining Google OR-Tools for constraint optimization with ML-based travel time prediction. Demand clustering for zone-based routing. Real-time re-routing based on traffic feed integration.',
-      problems: 'NP-hard optimization at scale — exact solutions were too slow for 500+ stop routes. Implemented hierarchical decomposition: cluster stops first, then optimize within clusters. Achieved near-optimal solutions in under 30 seconds.',
+      summary: 'ML pipeline for facial recognition verification using embedding matching for identity validation in attendance workflows. Combines real-time mobile inference with multi-factor validation (face + time + geolocation) to enforce attendance authenticity.',
+      impact: 'Eliminated fraudulent check-ins and enforced 100% attendance authenticity through real-time mobile inference and multi-factor validation. Removed manual attendance verification across distributed teams.',
+      aiLeverage: 'Embedding-based face matching against a pre-registered employee database. Real-time inference optimized for mobile constraints. Multi-factor validation layer combining face vector similarity, timestamp window enforcement, and geolocation fencing.',
+      problems: 'Mobile inference latency on lower-end devices required model quantization and inference graph optimization. Lighting and angle variability needed augmentation strategies during enrollment. False positives in similar-looking employees were addressed by raising similarity thresholds and adding the multi-factor layer.',
       link: '#',
     },
     6: {
       slug: 'complaint-management-system',
-      title: 'Complaint Managment System',
-      abbr: 'ROE',
-      timeline: 'Nov 2023 — Feb 2024',
-      tags: ['Python', 'OR-Tools', 'PostgreSQL', 'FastAPI', 'Redis'],
+      title: 'Complaint Management System',
+      abbr: 'CMS',
+      timeline: 'Oct 2025 — Dec 2025',
+      tags: ['Python', 'LangChain', 'FastAPI', 'PostgreSQL', 'Redis'],
       stars: 47, forks: 8,
       media: [],
-      summary: 'Graph-based optimization system that reduced average delivery times by 22% using constraint-solving algorithms, real-time traffic data, and demand forecasting models.',
-      impact: 'Reduced average delivery time by 22%. Increased daily delivery capacity by 18% without adding vehicles. ROI achieved within 6 weeks of deployment.',
-      aiLeverage: 'Hybrid approach combining Google OR-Tools for constraint optimization with ML-based travel time prediction. Demand clustering for zone-based routing. Real-time re-routing based on traffic feed integration.',
-      problems: 'NP-hard optimization at scale — exact solutions were too slow for 500+ stop routes. Implemented hierarchical decomposition: cluster stops first, then optimize within clusters. Achieved near-optimal solutions in under 30 seconds.',
+      summary: 'AI-powered complaint lifecycle management with RBAC, real-time workflow transparency, and LangChain-driven prioritization. Unified customer, admin, and internal team views into a single auditable pipeline.',
+      impact: 'Cut complaint resolution time from days to hours while improving accountability, prioritization of critical issues, and stakeholder visibility. Auditable trail eliminated the previous "lost ticket" problem.',
+      aiLeverage: 'LangChain-driven prioritization layer that classifies complaint severity, suggests next-best-action, and surfaces patterns across historical tickets. AI-generated executive summaries gave leadership visibility without manual reporting.',
+      problems: 'Aligning role-specific views (customer, admin, internal) onto a single state machine without leaking sensitive data was the central challenge. Solved by per-role projection layers on top of a unified ticket model. AI prioritization had to be calibrated against historical resolution outcomes to avoid over-escalating.',
       link: '#',
     },
     7: {
       slug: 'limove-wms-app',
-      title: 'LiMove WMS APP',
-      abbr: 'ROE',
-      timeline: 'Nov 2023 — Feb 2024',
-      tags: ['Python', 'OR-Tools', 'PostgreSQL', 'FastAPI', 'Redis'],
+      title: 'LiMove WMS App',
+      abbr: 'WMS',
+      timeline: 'Jun 2025 — Sep 2025',
+      tags: ['Flutter', 'Python', 'FastAPI', 'PostgreSQL', 'Redis'],
       stars: 47, forks: 8,
       media: [],
-      summary: 'Graph-based optimization system that reduced average delivery times by 22% using constraint-solving algorithms, real-time traffic data, and demand forecasting models.',
-      impact: 'Reduced average delivery time by 22%. Increased daily delivery capacity by 18% without adding vehicles. ROI achieved within 6 weeks of deployment.',
-      aiLeverage: 'Hybrid approach combining Google OR-Tools for constraint optimization with ML-based travel time prediction. Demand clustering for zone-based routing. Real-time re-routing based on traffic feed integration.',
-      problems: 'NP-hard optimization at scale — exact solutions were too slow for 500+ stop routes. Implemented hierarchical decomposition: cluster stops first, then optimize within clusters. Achieved near-optimal solutions in under 30 seconds.',
+      summary: 'Flutter-based enterprise WMS mobile application digitizing warehouse operations end-to-end — from receiving and put-away to picking, packing, and order verification.',
+      impact: 'Reduced order processing and verification time from 7 days to under 6 hours, while improving backend performance by 60% through API optimization techniques including indexing, pagination, and controlled preloading.',
+      aiLeverage: 'AI-assisted development to accelerate Flutter UI iteration, generate API client scaffolding, and surface query optimization patterns. Future roadmap includes computer vision for automated package verification at packing stations.',
+      problems: 'Backend response times under heavy concurrent warehouse load required careful indexing strategy and pagination of large list endpoints. Offline-first behavior on warehouse-floor devices needed a sync layer with conflict resolution. Flutter performance on lower-end devices required strategic widget rebuilds.',
       link: '#',
     },
     8: {
       slug: 'partial-refunds-pipeline',
       title: 'Partial Refunds Pipeline',
-      abbr: 'CCA',
-      timeline: 'Jul 2023 — Oct 2023',
-      tags: ['LangChain', 'OpenAI', 'Node.js', 'Stripe'],
+      abbr: 'PRP',
+      timeline: 'Sep 2024 — Nov 2024',
+      tags: ['Python', 'GCP', 'PostgreSQL', 'GraphQL', 'Redis'],
       stars: 76, forks: 14,
       media: [],
-      summary: 'LLM-powered shopping assistant that handles product discovery, comparisons, and checkout through natural conversation — integrated with inventory and payment APIs.',
-      impact: 'Increased conversion rate by 32% for users who engaged with the agent. Handled 70% of product queries without human intervention. Average session value increased by 25%.',
-      aiLeverage: 'Function-calling agent with structured tool use for product search, cart management, and payment processing. Fine-tuned on e-commerce conversation data for domain-specific understanding.',
-      problems: 'Payment security in an LLM context — preventing prompt injection from manipulating transaction amounts. Implemented strict tool-level validation and sandboxed the payment flow outside the LLM\'s control loop.',
+      summary: 'Real-time partial refunds system designed and deployed directly in LAAM Seller Front, reducing dependency on Shopify and improving seller satisfaction. Sellers gained the ability to issue partial refunds without context-switching to external tooling.',
+      impact: 'Cut manual refund processing time by 40%. Reduced support escalations around refund disputes. Removed a critical Shopify dependency from the seller workflow, giving the platform more control over the refund UX.',
+      aiLeverage: 'AI-assisted development for GraphQL schema design, edge-case generation in test suites, and refund-amount validation logic. Future roadmap includes anomaly detection on refund patterns to flag potential abuse.',
+      problems: 'Partial refunds in a multi-line-item order required careful state-machine design to prevent double-refunds. Reconciliation with payment processors needed idempotent retry logic. Concurrent edits by sellers during the refund flow were handled with optimistic locking.',
       link: '#',
     },
     9: {
       slug: 'customer-management-api',
       title: 'Centralized Customer Management API for Seller Applications',
-      abbr: 'PRE',
-      timeline: 'Mar 2023 — Jun 2023',
-      tags: ['Python', 'PyTorch', 'Redis', 'PostgreSQL', 'FastAPI'],
+      abbr: 'CMA',
+      timeline: 'Nov 2024 — Jan 2025',
+      tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'GraphQL/Rest API'],
       stars: 58, forks: 12,
       media: [],
-      summary: 'Collaborative filtering and embedding-based recommendation system serving 50K+ daily users — with A/B testing framework and real-time personalization.',
-      impact: 'Lifted click-through rate by 40% over the previous rule-based system. Increased average order value by 15%. A/B tests showed statistically significant improvement within 2 weeks.',
-      aiLeverage: 'Two-tower neural architecture for user-item embeddings. Real-time feature store in Redis for session-based personalization. Multi-armed bandit for exploration-exploitation in recommendation slots.',
-      problems: 'Cold-start problem for new users and items. Solved with content-based fallback using item metadata embeddings. Built a progressive profiling system that transitions from content-based to collaborative filtering as user data accumulates.',
+      summary: 'Enhanced the Order Management service powering 3,000+ sellers with advanced editing capabilities, reducing manual operational overhead and platform dependency on third-party services.',
+      impact: 'Streamlined order operations for 3,000+ sellers. Saved 5–7 hours of manual work per team each week. Reduced reliance on Shopify by enabling more order operations natively in the LAAM platform. Acted as on-call engineer during peak periods, resolving 20+ production-critical bugs in a single week.',
+      aiLeverage: 'AI-assisted scaffolding for the GraphQL/REST hybrid layer, automated test generation for the editing workflows, and code review of edge-case branching in order state transitions.',
+      problems: 'Concurrent order edits by sellers and admins required carefully designed locking and conflict-resolution semantics. Backwards compatibility with existing Shopify-driven flows had to be maintained during the migration. On-call incident velocity required tight observability — added structured logging and metric dashboards as part of the work.',
       link: '#',
     },
     10: {
       slug: 'content-generation-pipeline',
       title: 'Content Generation Pipeline',
       abbr: 'CGP',
-      timeline: 'Oct 2022 — Feb 2023',
+      timeline: 'Jan 2023 — Apr 2023',
       tags: ['OpenAI', 'Python', 'n8n', 'PostgreSQL'],
       stars: 41, forks: 7,
       media: [],
@@ -280,7 +280,7 @@
       slug: 'brand-voice-ai',
       title: 'Brand Voice AI',
       abbr: 'BVA',
-      timeline: 'Jun 2022 — Sep 2022',
+      timeline: 'Sep 2022 — Dec 2022',
       tags: ['Transformers', 'Python', 'FastAPI', 'Docker'],
       stars: 35, forks: 6,
       media: [],
@@ -300,7 +300,7 @@
       slug: 'llm-agents-production',
       title: 'Why Most LLM Agent Architectures Fail in Production — And How to Fix Them',
       tag: 'LLM Agents', date: 'Apr 2, 2026', readTime: '6 min read',
-      image: 'https://saliimranz.github.io/assets\blogs\demovprod.png',
+      image: '/assets/blogs/demovprod.png',
       summary: 'The gap between a demo agent and a production agent is enormous. Most teams build impressive prototypes that crumble under real-world conditions — unreliable tool calls, hallucination cascades, and zero observability. This article breaks down the reliability, observability, and fallback framework I use on every production agent build. Covers circuit breakers for tool calls, confidence-gated routing, structured logging for agent traces, and graceful degradation patterns.',
       links: { medium: 'https://medium.com/@saliimranz12/why-most-llm-agent-architectures-fail-in-production-and-how-to-fix-them-224f753daac0'},
     },
@@ -308,7 +308,7 @@
       slug: 'beyond-naive-rag',
       title: 'Beyond Naive RAG: Building Retrieval Systems That Actually Scale',
       tag: 'RAG', date: 'Mar 22, 2026', readTime: '5 min read',
-      image: 'https://saliimranz.github.io/assets\blogs\naieverag.png',
+      image: '/assets/blogs/naieverag.png',
       summary: 'Chunking strategies, hybrid search, re-ranking, and the architecture decisions that separate toy demos from enterprise-grade knowledge systems. Covers advanced techniques like parent-child chunking, metadata-aware splitting, cross-encoder re-ranking, and query transformation pipelines that dramatically improve retrieval precision at scale.',
       links: { medium: 'https://medium.com/@saliimranz12/beyond-naive-rag-building-retrieval-systems-that-actually-scale-b518a38b3d3d'},
     },
@@ -353,7 +353,7 @@
     1: {
       company: 'LiMove Logistics LLC',
       role: 'Software Engineer',
-      period: 'May 2025 — Present',
+      period: 'Feb 2025 — Present',
       location: 'Remote · UAE',
       story: 'When I joined LiMove, their logistics operations relied on manual coordination and spreadsheet-based tracking. Dispatchers were spending hours per day on route planning, and vehicle maintenance was entirely reactive — breakdowns were costing the company hundreds of thousands annually. I was brought in to build the AI infrastructure from scratch. Within months, I shipped a fleet intelligence system that predicts maintenance before failures happen and a route optimization engine that cut delivery times by 22%. The operations team went from firefighting daily crises to running a data-driven logistics operation.',
       metrics: [
@@ -368,7 +368,7 @@
     2: {
       company: 'LAAM Technologies',
       role: 'Software Engineering Intern',
-      period: 'Sep 2024 — Apr 2024',
+      period: 'Sep 2024 — Jan 2025',
       location: 'Remote',
       story: 'LAAM was scaling its e-commerce platform but struggling with two problems: customer support couldn\'t keep up with product queries, and the recommendation system was basic rule-based matching that wasn\'t driving conversions. I led the AI/ML vertical and built an LLM-powered shopping assistant that handles 70% of product queries autonomously, and a recommendation engine using neural collaborative filtering that lifted click-through rates by 40%. What started as an internship turned into me owning the entire AI stack for the company\'s products.',
       metrics: [
@@ -486,62 +486,6 @@
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
     });
 
-    // Reusable: open a project modal by ID
-    function openProjectModal(id) {
-      const p = projectData[id];
-      if (!p) return;
-
-      gallery.innerHTML = renderCarousel(p.media);
-      initCarousel(gallery);
-
-      const tagsHtml = p.tags.map(t => `<span>${t}</span>`).join('');
-
-      const caseStudyHref = p.slug ? `/projects/${p.slug}.html` : null;
-      const caseStudyLink = caseStudyHref
-        ? `<a href="${caseStudyHref}" class="modal-case-study-link">View full case study <span class="arrow">&rarr;</span></a>`
-        : '';
-
-      body.innerHTML = `
-        <h2 class="modal-title">${p.title}</h2>
-        <div class="modal-meta">
-          ${ICON_CALENDAR} ${p.timeline}
-        </div>
-        <div class="project-tags">${tagsHtml}</div>
-        <div class="modal-sections">
-          <div class="modal-section">
-            <h3 class="modal-section-title">Summary</h3>
-            <p>${p.summary}</p>
-          </div>
-          <div class="modal-section">
-            <h3 class="modal-section-title">Impact</h3>
-            <p>${p.impact}</p>
-          </div>
-          <div class="modal-section">
-            <h3 class="modal-section-title">AI Leverage</h3>
-            <p>${p.aiLeverage}</p>
-          </div>
-          <div class="modal-section">
-            <h3 class="modal-section-title">Problems Faced</h3>
-            <p>${p.problems}</p>
-          </div>
-        </div>
-        <div class="modal-actions">
-          ${caseStudyLink}
-          <a href="${p.link}" target="_blank" class="modal-project-link">Visit Project &rarr;</a>
-        </div>
-      `;
-
-      openModal();
-    }
-
-    // Project click handler
-    document.querySelectorAll('[data-project-id]').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        openProjectModal(el.getAttribute('data-project-id'));
-      });
-    });
-
     // Blog click handler
     document.querySelectorAll('[data-blog-id]').forEach(el => {
       el.addEventListener('click', (e) => {
@@ -563,6 +507,34 @@
           ? `<a href="${articleHref}" class="modal-case-study-link">Read full article <span class="arrow">&rarr;</span></a>`
           : '';
 
+        const LINK_CONFIG = [
+          {
+            key: 'medium',
+            label: 'Medium',
+            icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>',
+          },
+          {
+            key: 'github',
+            label: 'GitHub',
+            icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>',
+          },
+          {
+            key: 'inspiration',
+            label: 'Inspiration',
+            icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 00-2.1 13.68v2.57a1.75 1.75 0 001.75 1.75h.7a1.75 1.75 0 001.75-1.75v-2.57A7 7 0 0012 2z"/><path d="M10 21.25h4"/></svg>',
+          },
+          {
+            key: 'resources',
+            label: 'Extra Resources',
+            icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>',
+          },
+        ];
+
+        const linkButtons = LINK_CONFIG
+          .filter(cfg => b.links && b.links[cfg.key])
+          .map(cfg => `<a href="${b.links[cfg.key]}" target="_blank" rel="noopener" class="modal-link-btn">${cfg.icon} ${cfg.label}</a>`)
+          .join('');
+
         body.innerHTML = `
           <h2 class="modal-title">${b.title}</h2>
           <div class="modal-meta">
@@ -572,24 +544,7 @@
           </div>
           <div class="modal-summary"><p>${b.summary}</p></div>
           ${fullArticleLink ? `<div class="modal-actions">${fullArticleLink}</div>` : ''}
-          <div class="modal-links">
-            <a href="${b.links.medium}" target="_blank" class="modal-link-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-              Medium
-            </a>
-            <a href="${b.links.github}" target="_blank" class="modal-link-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              GitHub
-            </a>
-            <a href="${b.links.inspiration}" target="_blank" class="modal-link-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 00-2.1 13.68v2.57a1.75 1.75 0 001.75 1.75h.7a1.75 1.75 0 001.75-1.75v-2.57A7 7 0 0012 2z"/><path d="M10 21.25h4"/></svg>
-              Inspiration
-            </a>
-            <a href="${b.links.resources}" target="_blank" class="modal-link-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
-              Extra Resources
-            </a>
-          </div>
+          ${linkButtons ? `<div class="modal-links">${linkButtons}</div>` : ''}
         `;
 
         openModal();
@@ -617,11 +572,12 @@
           const p = projectData[pid];
           if (!p) return '';
           const miniTags = p.tags.slice(0, 3).map(t => `<span>${t}</span>`).join('');
-          return `<div class="modal-mini-card" data-mini-project="${pid}">
+          const miniHref = p.slug ? `/projects/${p.slug}.html` : '#';
+          return `<a class="modal-mini-card" href="${miniHref}">
             <h4>${p.title}</h4>
             <p>${p.summary.substring(0, 100)}...</p>
             <div class="project-tags">${miniTags}</div>
-          </div>`;
+          </a>`;
         }).join('');
 
         const tagsHtml = exp.tags.map(t => `<span>${t}</span>`).join('');
@@ -660,13 +616,6 @@
             </div>
           </div>
         `;
-
-        body.querySelectorAll('[data-mini-project]').forEach(card => {
-          card.addEventListener('click', () => {
-            closeModal();
-            setTimeout(() => openProjectModal(card.getAttribute('data-mini-project')), 350);
-          });
-        });
 
         openModal();
       });

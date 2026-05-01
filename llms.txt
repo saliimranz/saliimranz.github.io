@@ -1,6 +1,6 @@
 # Ali Imran — AI Engineer & Automation Consultant
 
-> AI Engineer based in Lahore, Pakistan, building production LLM agents, RAG systems, n8n automations, and Answer Engine Optimization (AEO) implementations for clients worldwide.
+> AI Engineer building production LLM agents, RAG systems, n8n automation, and AEO for clients worldwide. Based in Lahore, Pakistan.
 
 ## Services
 - **LLM Agent Development**: Multi-agent orchestration, tool use, memory, human-in-the-loop systems
@@ -11,8 +11,8 @@
 
 ## Hire Me
 - **Direct contact**: saliimranz12@gmail.com
-- **Upwork**: [profile URL]
-- **Fiverr**: [profile URL]
+- **Upwork**: https://www.upwork.com/freelancers/~019279d84a87419df8?mp_source=share
+- **Fiverr**: https://www.fiverr.com/s/NN9DXpo
 - **LinkedIn**: https://linkedin.com/in/saliimranz
 
 ## Portfolio

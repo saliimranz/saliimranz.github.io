@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>AI Invoice Automation — n8n + LLM Document Pipeline | Ali Imran Case Study</title>
+  <meta name="description" content="11-node n8n pipeline that uses OCR and LLM to extract every field from PDF invoices and auto-populate Google Sheets. 80% faster, 4× throughput, sub-4s per invoice. Zero human touch." />
+  <meta name="author" content="Ali Imran" />
+  <link rel="canonical" href="https://saliimranz.github.io/projects/invoice-automation.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI Invoice Automation — n8n + LLM Pipeline Case Study" />
+  <meta property="og:description" content="11-node n8n pipeline. OCR + LLM extracts every field. Google Sheets auto-population. 80% faster, 4× throughput." />
+  <meta property="og:url" content="https://saliimranz.github.io/projects/invoice-automation.html" />
+  <meta property="og:image" content="https://saliimranz.github.io/assets/projects/invoice-automation/real_impact_thumb.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Invoice Automation Case Study" />
+  <meta name="twitter:description" content="n8n + OCR + LLM invoice processing pipeline by Ali Imran." />
+  <meta name="twitter:image" content="https://saliimranz.github.io/assets/projects/invoice-automation/real_impact_thumb.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://saliimranz.github.io/projects/invoice-automation.html#webpage",
+        "url": "https://saliimranz.github.io/projects/invoice-automation.html",
+        "name": "AI Invoice Automation — n8n + LLM Document Pipeline Case Study",
+        "description": "11-node n8n pipeline that uses OCR and LLM to extract every field from PDF invoices and auto-populate Google Sheets. 80% faster, 4× throughput, sub-4s per invoice. Zero human touch.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://saliimranz.github.io/#website" },
+        "about":     { "@id": "https://saliimranz.github.io/projects/invoice-automation.html#creativework" },
+        "breadcrumb": { "@id": "https://saliimranz.github.io/projects/invoice-automation.html#breadcrumb" },
+        "mainEntity": { "@id": "https://saliimranz.github.io/projects/invoice-automation.html#creativework" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://saliimranz.github.io/projects/invoice-automation.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saliimranz.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://saliimranz.github.io/projects.html" },
+          { "@type": "ListItem", "position": 3, "name": "AI Invoice Automation" }
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://saliimranz.github.io/projects/invoice-automation.html#creativework",
+        "name": "AI Invoice Automation",
+        "headline": "AI Invoice Automation — n8n + LLM Document Pipeline",
+        "description": "End-to-end AI invoice processing pipeline built in n8n. Drive monitors a folder, file detected, OCR + LLM extracts every field (vendor, line items, taxes, totals, IBAN), data auto-populates Google Sheets, file is archived, notification fires. Zero human touch, sub-4-second per invoice.",
+        "url": "https://saliimranz.github.io/projects/invoice-automation.html",
+        "mainEntityOfPage": { "@id": "https://saliimranz.github.io/projects/invoice-automation.html#webpage" },
+        "creator": { "@id": "https://saliimranz.github.io/#person" },
+        "author":  { "@id": "https://saliimranz.github.io/#person" },
+        "datePublished": "2026-04-01",
+        "keywords": "n8n, OpenAI, OCR, Google Sheets, Google Drive API, invoice automation, document AI, AP automation, PDF extraction",
+        "about": ["AI Workflow Automation", "Document AI", "OCR + LLM Pipelines", "n8n Orchestration", "Google Workspace Integration"],
+        "isPartOf": { "@id": "https://saliimranz.github.io/#projects" },
+        "image": [
+          {
+            "@type": "ImageObject",
+            "contentUrl": "https://saliimranz.github.io/assets/projects/invoice-automation/real_impact_thumb.png",
+            "url": "https://saliimranz.github.io/assets/projects/invoice-automation/real_impact_thumb.png",
+            "caption": "AI invoice automation — impact summary thumbnail",
+            "encodingFormat": "image/png",
+            "creator": { "@id": "https://saliimranz.github.io/#person" }
+          },
+          {
+            "@type": "ImageObject",
+            "contentUrl": "https://saliimranz.github.io/assets/projects/invoice-automation/invoice_automation_thumbnail_1.png",
+            "url": "https://saliimranz.github.io/assets/projects/invoice-automation/invoice_automation_thumbnail_1.png",
+            "caption": "n8n invoice extraction pipeline overview",
+            "encodingFormat": "image/png",
+            "creator": { "@id": "https://saliimranz.github.io/#person" }
+          },
+          {
+            "@type": "ImageObject",
+            "contentUrl": "https://saliimranz.github.io/assets/projects/invoice-automation/image.png",
+            "url": "https://saliimranz.github.io/assets/projects/invoice-automation/image.png",
+            "caption": "Extracted invoice data populated into Google Sheets",
+            "encodingFormat": "image/png",
+            "creator": { "@id": "https://saliimranz.github.io/#person" }
+          },
+          {
+            "@type": "ImageObject",
+            "contentUrl": "https://saliimranz.github.io/assets/projects/invoice-automation/image-Before.png",
+            "url": "https://saliimranz.github.io/assets/projects/invoice-automation/image-Before.png",
+            "caption": "Manual invoice processing — before automation",
+            "encodingFormat": "image/png",
+            "creator": { "@id": "https://saliimranz.github.io/#person" }
+          },
+          {
+            "@type": "ImageObject",
+            "contentUrl": "https://saliimranz.github.io/assets/projects/invoice-automation/image-Real_before.png",
+            "url": "https://saliimranz.github.io/assets/projects/invoice-automation/image-Real_before.png",
+            "caption": "Real invoice example — before-state baseline",
+            "encodingFormat": "image/png",
+            "creator": { "@id": "https://saliimranz.github.io/#person" }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <article class="detail-page">
+    <a href="/projects.html" class="detail-back">&larr; Back to all projects</a>
+
+    <span class="detail-eyebrow">AI Workflow Automation</span>
+    <h1 class="detail-title">AI Invoice Automation</h1>
+
+    <div class="project-carousel-host" data-project-carousel="invoice-automation"></div>
+
+    <div class="detail-meta">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Apr 2026 — Present</span>
+      <span class="detail-meta-sep"></span>
+      <span>Independent / Freelance</span>
+    </div>
+
+    <div class="detail-tags">
+      <span>n8n</span><span>OpenAI</span><span>OCR</span><span>Google Sheets</span><span>Google Drive API</span>
+    </div>
+
+    <p class="detail-summary">Businesses receiving daily invoices wasted hours on manual data entry &mdash; reading PDFs, retyping fields, running formulas. I built an <strong>11-node n8n pipeline</strong>: Drive monitors a folder &rarr; file detected &rarr; OCR + LLM extracts all fields (vendor, line items, taxes, totals, IBAN) &rarr; auto-populates Google Sheets &rarr; archives file &rarr; sends notification. Zero human touch.</p>
+
+    <section class="detail-section">
+      <h2>Impact</h2>
+      <ul>
+        <li><strong>80%</strong> faster processing per invoice</li>
+        <li><strong>50%</strong> reduction in AP team effort</li>
+        <li><strong>4&times;</strong> throughput increase</li>
+        <li><strong>&lt;4 seconds</strong> average runtime per invoice</li>
+        <li>Eliminated daily manual data-entry that previously consumed hours of finance-team time</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>AI Leverage</h2>
+      <p>OCR extracts text from variable PDF layouts. LLM does <strong>structured field extraction</strong> &mdash; vendor, line items, taxes, totals, IBAN &mdash; with confidence scoring on each field. n8n orchestrates 11 nodes covering Drive folder watch, OCR, LLM extraction, Google Sheets population, archival, and Slack/email notification.</p>
+      <p>Cost-aware design: caches vendor-specific extraction patterns so the LLM only fires on novel layouts. Recurring vendors get processed nearly free after the first encounter.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Problems Faced</h2>
+      <p><strong>Variable PDF formats</strong> from different vendors broke fixed-template OCR. The OCR + LLM combo solved it for 95%+ of invoices by letting the model interpret semi-structured text.</p>
+      <p><strong>Edge cases</strong> &mdash; missing fields, low-quality scans, non-standard tables &mdash; needed graceful fallbacks. Built a human-review queue for sub-threshold confidence so nothing silently fails.</p>
+      <p><strong>Cost optimization</strong> at scale required caching extracted patterns per vendor. Without it, repetitive layouts would re-burn LLM tokens on every run.</p>
+    </section>
+
+    <div class="detail-cta">
+      <h3>Have a document-processing nightmare you'd like to automate?</h3>
+      <p>I build n8n + LLM pipelines for invoices, contracts, receipts, statements &mdash; anything PDF that humans currently type in by hand.</p>
+      <div class="detail-cta-actions">
+        <a href="/services/ai-automation.html" class="detail-cta-btn primary">View AI Automation Service &rarr;</a>
+        <a href="/index.html#hire" class="detail-cta-btn secondary">All hire options</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-root"></div>
+  <div id="modal-root"></div>
+
+  <script src="/components.js"></script>
+  <script>
+    document.getElementById('navbar-root').innerHTML = renderNavbar('projects');
+    document.getElementById('footer-root').innerHTML = renderFooter();
+    document.getElementById('modal-root').innerHTML = renderModal();
+    initModals();
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -32,6 +32,14 @@
     window.initNavDropdown();
   }
 
+  // ========== PROJECT MEDIA HYDRATION ==========
+  if (typeof window.hydrateProjectCards === 'function') {
+    window.hydrateProjectCards();
+  }
+  if (typeof window.hydrateProjectCarousels === 'function') {
+    window.hydrateProjectCarousels();
+  }
+
   // ========== ACTIVE NAV LINK ON SCROLL ==========
   const sections = document.querySelectorAll('section[id]');
   const navLinkElements = document.querySelectorAll('.nav-link');

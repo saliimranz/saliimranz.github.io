@@ -1589,6 +1589,29 @@ img {
   overflow: hidden;
 }
 
+/* Adaptive layouts by media count */
+.project-collage[data-count="1"] {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.project-collage[data-count="2"] {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* 3 items: featured-left + 2-stacked-right pattern */
+.project-collage[data-count="3"] {
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.project-collage[data-count="3"] .collage-block:nth-child(1) {
+  grid-row: 1 / span 2;
+}
+
+/* 4 and 5+ keep the default 2x2 */
+
 .collage-block {
   display: flex;
   align-items: center;
@@ -1597,12 +1620,47 @@ img {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
 }
 
-.collage-block:nth-child(1) { background: linear-gradient(135deg, #1a1a2e, #16213e); }
-.collage-block:nth-child(2) { background: linear-gradient(135deg, #0f3460, #1a1a2e); }
-.collage-block:nth-child(3) { background: linear-gradient(135deg, #16213e, #0f3460); }
-.collage-block:nth-child(4) { background: linear-gradient(135deg, #1a1a2e, #0f3460); }
+/* Real-media blocks: image/video fills the cell, cover-cropped for thumbnails */
+.collage-block.has-media {
+  background: #0a0a0a;
+}
+
+.collage-block.has-media img,
+.collage-block.has-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.collage-block.has-overflow {
+  position: relative;
+}
+
+.collage-overflow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  pointer-events: none;
+}
+
+/* Fallback gradient blocks (no media yet) */
+.collage-block:not(.has-media):nth-child(1) { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+.collage-block:not(.has-media):nth-child(2) { background: linear-gradient(135deg, #0f3460, #1a1a2e); }
+.collage-block:not(.has-media):nth-child(3) { background: linear-gradient(135deg, #16213e, #0f3460); }
+.collage-block:not(.has-media):nth-child(4) { background: linear-gradient(135deg, #1a1a2e, #0f3460); }
 
 .project-page-info {
   flex: 1;
@@ -1838,7 +1896,7 @@ img {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+  background: #0a0a0a;
 }
 
 .carousel-slide {
@@ -1855,9 +1913,25 @@ img {
 
 .carousel-slide img,
 .carousel-slide video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Detail-page project carousel host (placed after H1) */
+.project-carousel-host {
+  margin: 8px 0 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.project-carousel-host .carousel {
+  margin-top: 0;
+  border-radius: 0;
 }
 
 .carousel-placeholder {

@@ -134,6 +134,15 @@
   const ICON_FORK = '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0zM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM8 12.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z"/></svg>';
   const ICON_CALENDAR = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
 
+  // ========== MEDIA: PLACEHOLDER USED ON PROJECTS WITHOUT REAL ASSETS YET ==========
+  // To add/remove media for any project: edit the `media` array on that project below.
+  // Format: { type: 'image' | 'video', src, alt, poster? (videos only) }
+  const PLACEHOLDER_MEDIA = [
+    { type: 'image', src: '/assets/projects/pos/thumbnail.png', alt: 'Project thumbnail (placeholder)' },
+    { type: 'image', src: '/assets/projects/pos/ai-dashboard.png', alt: 'Project dashboard view (placeholder)' },
+    { type: 'image', src: '/assets/projects/pos/interface.png', alt: 'Project interface view (placeholder)' },
+  ];
+
   // ========== PROJECT DATA ==========
   const projectData = {
     1: {
@@ -143,7 +152,7 @@
       timeline: 'Jan 2025 — Present',
       tags: ['LangChain', 'Python', 'Redis', 'FastAPI'],
       stars: 142, forks: 28,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'Enterprise orchestration layer coordinating specialized LLM agents across complex workflows — handling task decomposition, tool use, memory, and human-in-the-loop escalation at scale. The system processes thousands of concurrent agent sessions with sub-second routing decisions.',
       impact: 'Reduced client operational overhead by 60%. Enabled non-technical teams to define complex business workflows that previously required dedicated engineering sprints. Currently serving 3 enterprise clients in production.',
       aiLeverage: 'Multi-agent architecture with specialized agents for planning, execution, and validation. Uses ReAct pattern with custom tool integrations. Implements semantic memory via vector stores for long-running conversation context.',
@@ -157,7 +166,7 @@
       timeline: 'Sep 2024 — Dec 2024',
       tags: ['OpenAI', 'Pinecone', 'Python', 'Next.js'],
       stars: 89, forks: 17,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'End-to-end retrieval-augmented generation system ingesting 100K+ enterprise documents with hybrid search, re-ranking, and citation-backed conversational responses. Serves as the knowledge backbone for client support and internal operations.',
       impact: 'Cut support ticket resolution time by 45%. Achieved 94% answer accuracy on internal benchmarks. Replaced a team of 5 knowledge workers for first-line query resolution.',
       aiLeverage: 'Hybrid retrieval combining dense vector search (Pinecone) with sparse BM25. Cross-encoder re-ranking for precision. Chunking strategy with overlapping windows and metadata-aware splitting.',
@@ -171,7 +180,7 @@
       timeline: 'May 2024 — Aug 2024',
       tags: ['PyTorch', 'MLflow', 'Docker', 'AWS SageMaker'],
       stars: 64, forks: 11,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'Automated machine learning pipeline for demand forecasting — data ingestion, feature engineering, PyTorch model training, and real-time inference with drift monitoring. Processes millions of data points daily.',
       impact: 'Improved forecast accuracy by 28% over the client\'s existing rule-based system. Reduced inventory overstock costs by $1.2M annually. Automated what was previously a 3-day manual forecasting process.',
       aiLeverage: 'Temporal fusion transformer for multi-horizon forecasting. Automated feature engineering pipeline extracting 200+ features from raw transactional data. Online learning component for continuous model adaptation.',
@@ -185,7 +194,11 @@
       timeline: 'Feb 2025 — May 2025',
       tags: ['.NET', 'VB.NET', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'WebForms'],
       stars: 53, forks: 9,
-      media: [],
+      media: [
+        { type: 'image', src: '/assets/projects/pos/thumbnail.png', alt: 'Multi-branch POS dashboard overview — main thumbnail' },
+        { type: 'image', src: '/assets/projects/pos/ai-dashboard.png', alt: 'AI-assisted analytics dashboard inside the POS platform' },
+        { type: 'image', src: '/assets/projects/pos/interface.png', alt: 'POS branch operator interface — checkout flow' },
+      ],
       summary: 'Designed and implemented a centralized multi-branch POS platform enabling end-to-end retail operations, including checkout, inventory management, customer lifecycle tracking, and analytics. The system unified fragmented store operations into a single scalable platform with real-time visibility and control for both branch-level users and central administrators.',
       impact: 'Reduced in-store sales execution time by ~95% through scan-to-cart and optimized checkout flows, significantly improving customer throughput. Introduced a flexible credit-based payment system that enabled partial and deferred payments, increasing customer retention and repeat purchases. Enabled real-time inventory tracking and sales analytics, allowing businesses to make faster, data-driven decisions across multiple branches.',
       aiLeverage: 'Leveraged AI tools to accelerate development by assisting in system design decisions, generating optimized code patterns, and debugging complex workflows. Used AI to refine database schemas, Frontend and error handling',
@@ -199,7 +212,7 @@
       timeline: 'Jan 2026 — Mar 2026',
       tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Embedding Matching'],
       stars: 47, forks: 8,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'ML pipeline for facial recognition verification using embedding matching for identity validation in attendance workflows. Combines real-time mobile inference with multi-factor validation (face + time + geolocation) to enforce attendance authenticity.',
       impact: 'Eliminated fraudulent check-ins and enforced 100% attendance authenticity through real-time mobile inference and multi-factor validation. Removed manual attendance verification across distributed teams.',
       aiLeverage: 'Embedding-based face matching against a pre-registered employee database. Real-time inference optimized for mobile constraints. Multi-factor validation layer combining face vector similarity, timestamp window enforcement, and geolocation fencing.',
@@ -213,7 +226,7 @@
       timeline: 'Oct 2025 — Dec 2025',
       tags: ['Python', 'LangChain', 'FastAPI', 'PostgreSQL', 'Redis'],
       stars: 47, forks: 8,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'AI-powered complaint lifecycle management with RBAC, real-time workflow transparency, and LangChain-driven prioritization. Unified customer, admin, and internal team views into a single auditable pipeline.',
       impact: 'Cut complaint resolution time from days to hours while improving accountability, prioritization of critical issues, and stakeholder visibility. Auditable trail eliminated the previous "lost ticket" problem.',
       aiLeverage: 'LangChain-driven prioritization layer that classifies complaint severity, suggests next-best-action, and surfaces patterns across historical tickets. AI-generated executive summaries gave leadership visibility without manual reporting.',
@@ -227,7 +240,7 @@
       timeline: 'Jun 2025 — Sep 2025',
       tags: ['Flutter', 'Python', 'FastAPI', 'PostgreSQL', 'Redis'],
       stars: 47, forks: 8,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'Flutter-based enterprise WMS mobile application digitizing warehouse operations end-to-end — from receiving and put-away to picking, packing, and order verification.',
       impact: 'Reduced order processing and verification time from 7 days to under 6 hours, while improving backend performance by 60% through API optimization techniques including indexing, pagination, and controlled preloading.',
       aiLeverage: 'AI-assisted development to accelerate Flutter UI iteration, generate API client scaffolding, and surface query optimization patterns. Future roadmap includes computer vision for automated package verification at packing stations.',
@@ -241,7 +254,7 @@
       timeline: 'Sep 2024 — Nov 2024',
       tags: ['Python', 'GCP', 'PostgreSQL', 'GraphQL', 'Redis'],
       stars: 76, forks: 14,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'Real-time partial refunds system designed and deployed directly in LAAM Seller Front, reducing dependency on Shopify and improving seller satisfaction. Sellers gained the ability to issue partial refunds without context-switching to external tooling.',
       impact: 'Cut manual refund processing time by 40%. Reduced support escalations around refund disputes. Removed a critical Shopify dependency from the seller workflow, giving the platform more control over the refund UX.',
       aiLeverage: 'AI-assisted development for GraphQL schema design, edge-case generation in test suites, and refund-amount validation logic. Future roadmap includes anomaly detection on refund patterns to flag potential abuse.',
@@ -255,7 +268,7 @@
       timeline: 'Nov 2024 — Jan 2025',
       tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'GraphQL/Rest API'],
       stars: 58, forks: 12,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'Enhanced the Order Management service powering 3,000+ sellers with advanced editing capabilities, reducing manual operational overhead and platform dependency on third-party services.',
       impact: 'Streamlined order operations for 3,000+ sellers. Saved 5–7 hours of manual work per team each week. Reduced reliance on Shopify by enabling more order operations natively in the LAAM platform. Acted as on-call engineer during peak periods, resolving 20+ production-critical bugs in a single week.',
       aiLeverage: 'AI-assisted scaffolding for the GraphQL/REST hybrid layer, automated test generation for the editing workflows, and code review of edge-case branching in order state transitions.',
@@ -269,7 +282,7 @@
       timeline: 'Jan 2023 — Apr 2023',
       tags: ['OpenAI', 'Python', 'n8n', 'PostgreSQL'],
       stars: 41, forks: 7,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'Automated content pipeline producing SEO-optimized articles, social media posts, and email campaigns at scale — with brand voice consistency and human review workflows.',
       impact: 'Increased content output by 10x while maintaining quality scores. Reduced content production costs by 65%. SEO traffic grew 180% over 4 months.',
       aiLeverage: 'Prompt chaining for multi-stage content creation: research → outline → draft → optimize. Custom style transfer model trained on brand guidelines. Automated SEO keyword integration and readability scoring.',
@@ -283,11 +296,31 @@
       timeline: 'Sep 2022 — Dec 2022',
       tags: ['Transformers', 'Python', 'FastAPI', 'Docker'],
       stars: 35, forks: 6,
-      media: [],
+      media: PLACEHOLDER_MEDIA,
       summary: 'Fine-tuned language model trained on client brand guidelines to generate on-brand copy — with tone analysis, style scoring, and iterative refinement loops.',
       impact: 'Achieved 91% brand voice consistency score (up from 62% with generic models). Reduced copywriting revision cycles from 4 rounds to 1.5 on average. Adopted by 3 creative teams internally.',
       aiLeverage: 'Fine-tuned GPT-based model on curated brand corpus. Built a discriminator model for real-time style scoring. Iterative generation loop that self-corrects based on style feedback.',
       problems: 'Limited brand-specific training data (only ~5K examples). Used data augmentation via paraphrasing and style transfer from adjacent brands. Curriculum learning strategy that starts with general writing quality before specializing.',
+      link: '#',
+    },
+    12: {
+      slug: 'invoice-automation',
+      title: 'AI Invoice Automation',
+      abbr: 'INV',
+      timeline: 'Apr 2026 — Present',
+      tags: ['n8n', 'OpenAI', 'OCR', 'Google Sheets', 'Google Drive API'],
+      stars: 88, forks: 19,
+      media: [
+        { type: 'image', src: '/assets/projects/invoice-automation/real_impact_thumb.png', alt: 'AI invoice automation — impact summary thumbnail' },
+        { type: 'image', src: '/assets/projects/invoice-automation/invoice_automation_thumbnail_1.png', alt: 'n8n invoice extraction pipeline overview' },
+        { type: 'image', src: '/assets/projects/invoice-automation/image.png', alt: 'Extracted invoice data populated into Google Sheets' },
+        { type: 'image', src: '/assets/projects/invoice-automation/image-Before.png', alt: 'Manual invoice processing — before automation' },
+        { type: 'image', src: '/assets/projects/invoice-automation/image-Real_before.png', alt: 'Real invoice example — before-state baseline' },
+      ],
+      summary: 'End-to-end AI invoice processing pipeline built in n8n. Drive monitors a folder, file detected, OCR + LLM extracts every field (vendor, line items, taxes, totals, IBAN), data auto-populates Google Sheets, file is archived, notification fires. Zero human touch, sub-4-second per invoice.',
+      impact: '80% faster processing. 50% less effort across the AP team. 4× throughput increase. Sub-4-second average runtime per invoice. Eliminated daily manual data entry that previously consumed several hours of finance-team time.',
+      aiLeverage: 'OCR extracts text from variable PDF layouts. LLM does structured field extraction — vendor, line items, taxes, totals, IBAN — with confidence scoring on each field. n8n orchestrates 11 nodes covering Drive folder watch, OCR, LLM extraction, Google Sheets population, archival, and Slack/email notification. Caches extracted patterns to reduce LLM cost on recurring vendors.',
+      problems: 'Variable PDF formats from different vendors broke fixed-template OCR; the OCR + LLM combo solved it for 95%+ of invoices. Edge cases — missing fields, low-quality scans, non-standard tables — needed graceful fallbacks with a human-review queue. Cost optimization: cached vendor-specific extraction patterns so the LLM only fires on novel layouts.',
       link: '#',
     },
   };
@@ -458,6 +491,75 @@
       if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
     });
   }
+
+  // ========== PROJECT MEDIA HYDRATION ==========
+  function projectBySlug(slug) {
+    for (const k in projectData) {
+      if (projectData[k].slug === slug) return projectData[k];
+    }
+    return null;
+  }
+
+  function escapeAttr(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function mediaToCollageBlock(item, opts) {
+    opts = opts || {};
+    const overflowBadge = opts.overflow ? `<span class="collage-overflow">+${opts.overflow}</span>` : '';
+    const overflowClass = opts.overflow ? ' has-overflow' : '';
+    if (item.type === 'video') {
+      const poster = item.poster ? ` poster="${escapeAttr(item.poster)}"` : '';
+      return `<div class="collage-block has-media${overflowClass}"><video src="${escapeAttr(item.src)}"${poster} preload="metadata" muted playsinline></video>${overflowBadge}</div>`;
+    }
+    return `<div class="collage-block has-media${overflowClass}"><img src="${escapeAttr(item.src)}" alt="${escapeAttr(item.alt)}" loading="lazy" />${overflowBadge}</div>`;
+  }
+
+  function renderProjectCollage(slug) {
+    const p = projectBySlug(slug);
+    if (!p) return '';
+    const media = (p.media || []).filter(Boolean);
+    if (media.length === 0) {
+      const abbr = escapeAttr(p.abbr || 'PRJ');
+      return `<div class="collage-block">${abbr}</div><div class="collage-block">${abbr}</div><div class="collage-block">${abbr}</div><div class="collage-block">${abbr}</div>`;
+    }
+    if (media.length <= 4) {
+      return media.map(m => mediaToCollageBlock(m)).join('');
+    }
+    // 5+: render first 3 normally, fourth gets +N badge
+    const first3 = media.slice(0, 3).map(m => mediaToCollageBlock(m)).join('');
+    const fourth = mediaToCollageBlock(media[3], { overflow: media.length - 4 });
+    return first3 + fourth;
+  }
+
+  function hydrateProjectCards() {
+    document.querySelectorAll('[data-project-slug]').forEach(card => {
+      const slug = card.getAttribute('data-project-slug');
+      const host = card.querySelector('.project-collage');
+      if (!host) return;
+      const p = projectBySlug(slug);
+      const count = p && p.media ? p.media.length : 0;
+      host.setAttribute('data-count', String(Math.min(count, 4) || 0));
+      host.innerHTML = renderProjectCollage(slug);
+    });
+  }
+
+  function hydrateProjectCarousels() {
+    document.querySelectorAll('[data-project-carousel]').forEach(host => {
+      const slug = host.getAttribute('data-project-carousel');
+      const p = projectBySlug(slug);
+      if (!p) { host.style.display = 'none'; return; }
+      const media = (p.media || []).filter(Boolean);
+      if (media.length === 0) { host.style.display = 'none'; return; }
+      host.innerHTML = renderCarousel(media);
+      initCarousel(host);
+    });
+  }
+
+  window.hydrateProjectCards = hydrateProjectCards;
+  window.hydrateProjectCarousels = hydrateProjectCarousels;
 
   // ========== MODAL LOGIC ==========
   function initModals() {

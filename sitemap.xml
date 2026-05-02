@@ -37,6 +37,12 @@
 
   <!-- ========== PROJECT CASE STUDIES ========== -->
   <url>
+    <loc>https://saliimranz.github.io/projects/invoice-automation.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://saliimranz.github.io/projects/appointment-ai.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>

@@ -155,7 +155,7 @@
       media: [
         {type: 'image', src: '/assets/projects/appointment_ai/app1.png', alt: 'Dashboard Image'},
         {type: 'image', src: '/assets/projects/appointment_ai/app2.png', alt: 'Schedule Image'},
-        {type: 'image', src: '/assets/projects/appointment_ai/app1.png', alt: 'History Image'},],
+        {type: 'image', src: '/assets/projects/appointment_ai/app3.png', alt: 'History Image'},],
       summary: 'Enterprise orchestration layer coordinating specialized LLM agents across complex workflows — handling task decomposition, tool use, memory, and human-in-the-loop escalation at scale. The system processes thousands of concurrent agent sessions with sub-second routing decisions.',
       impact: 'Reduced client operational overhead by 60%. Enabled non-technical teams to define complex business workflows that previously required dedicated engineering sprints. Currently serving 3 enterprise clients in production.',
       aiLeverage: 'Multi-agent architecture with specialized agents for planning, execution, and validation. Uses ReAct pattern with custom tool integrations. Implements semantic memory via vector stores for long-running conversation context.',
@@ -169,7 +169,7 @@
       timeline: 'Sep 2024 — Dec 2024',
       tags: ['OpenAI', 'Pinecone', 'Python', 'Next.js'],
       stars: 89, forks: 17,
-      media: PLACEHOLDER_MEDIA,
+      media: [],
       summary: 'End-to-end retrieval-augmented generation system ingesting 100K+ enterprise documents with hybrid search, re-ranking, and citation-backed conversational responses. Serves as the knowledge backbone for client support and internal operations.',
       impact: 'Cut support ticket resolution time by 45%. Achieved 94% answer accuracy on internal benchmarks. Replaced a team of 5 knowledge workers for first-line query resolution.',
       aiLeverage: 'Hybrid retrieval combining dense vector search (Pinecone) with sparse BM25. Cross-encoder re-ranking for precision. Chunking strategy with overlapping windows and metadata-aware splitting.',
@@ -183,7 +183,7 @@
       timeline: 'May 2024 — Aug 2024',
       tags: ['PyTorch', 'MLflow', 'Docker', 'AWS SageMaker'],
       stars: 64, forks: 11,
-      media: PLACEHOLDER_MEDIA,
+      media: [],
       summary: 'Automated machine learning pipeline for demand forecasting — data ingestion, feature engineering, PyTorch model training, and real-time inference with drift monitoring. Processes millions of data points daily.',
       impact: 'Improved forecast accuracy by 28% over the client\'s existing rule-based system. Reduced inventory overstock costs by $1.2M annually. Automated what was previously a 3-day manual forecasting process.',
       aiLeverage: 'Temporal fusion transformer for multi-horizon forecasting. Automated feature engineering pipeline extracting 200+ features from raw transactional data. Online learning component for continuous model adaptation.',
@@ -234,7 +234,6 @@
       tags: ['Python', 'LangChain', 'FastAPI', 'PostgreSQL', 'Redis'],
       stars: 47, forks: 8,
       media: [
-        { type: 'image', src: '/assets/projects/cms/thumb.png', alt: 'CMS Thubnail' },
         { type: 'image', src: '/assets/projects/cms/1.png', alt: 'CMS Dashboard' },
         { type: 'image', src: '/assets/projects/cms/2.png', alt: 'CMS Ticket Details' },
         { type: 'image', src: '/assets/projects/cms/3.png', alt: 'CMS Customer Interface' },
@@ -252,7 +251,12 @@
       timeline: 'Jun 2025 — Sep 2025',
       tags: ['Flutter', 'Python', 'FastAPI', 'PostgreSQL', 'Redis'],
       stars: 47, forks: 8,
-      media: PLACEHOLDER_MEDIA,
+      media: [
+        { type: 'image', src: '/assets/projects/wms/thumb.png', alt: 'WMS Thubnail' },
+        { type: 'image', src: '/assets/projects/wms/1.png', alt: 'WMS Dashboard' },
+        { type: 'image', src: '/assets/projects/wms/2.png', alt: 'WMS Order List' },
+        { type: 'image', src: '/assets/projects/wms/3.png', alt: 'WMS Order Detail' },
+      ],
       summary: 'Flutter-based enterprise WMS mobile application digitizing warehouse operations end-to-end — from receiving and put-away to picking, packing, and order verification.',
       impact: 'Reduced order processing and verification time from 7 days to under 6 hours, while improving backend performance by 60% through API optimization techniques including indexing, pagination, and controlled preloading.',
       aiLeverage: 'AI-assisted development to accelerate Flutter UI iteration, generate API client scaffolding, and surface query optimization patterns. Future roadmap includes computer vision for automated package verification at packing stations.',
@@ -266,7 +270,6 @@
       timeline: 'Sep 2024 — Nov 2024',
       tags: ['Python', 'GCP', 'PostgreSQL', 'GraphQL', 'Redis'],
       stars: 76, forks: 14,
-      media: PLACEHOLDER_MEDIA,
       summary: 'Real-time partial refunds system designed and deployed directly in LAAM Seller Front, reducing dependency on Shopify and improving seller satisfaction. Sellers gained the ability to issue partial refunds without context-switching to external tooling.',
       impact: 'Cut manual refund processing time by 40%. Reduced support escalations around refund disputes. Removed a critical Shopify dependency from the seller workflow, giving the platform more control over the refund UX.',
       aiLeverage: 'AI-assisted development for GraphQL schema design, edge-case generation in test suites, and refund-amount validation logic. Future roadmap includes anomaly detection on refund patterns to flag potential abuse.',
@@ -280,7 +283,7 @@
       timeline: 'Nov 2024 — Jan 2025',
       tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'GraphQL/Rest API'],
       stars: 58, forks: 12,
-      media: PLACEHOLDER_MEDIA,
+      media: [],
       summary: 'Enhanced the Order Management service powering 3,000+ sellers with advanced editing capabilities, reducing manual operational overhead and platform dependency on third-party services.',
       impact: 'Streamlined order operations for 3,000+ sellers. Saved 5–7 hours of manual work per team each week. Reduced reliance on Shopify by enabling more order operations natively in the LAAM platform. Acted as on-call engineer during peak periods, resolving 20+ production-critical bugs in a single week.',
       aiLeverage: 'AI-assisted scaffolding for the GraphQL/REST hybrid layer, automated test generation for the editing workflows, and code review of edge-case branching in order state transitions.',
@@ -294,7 +297,7 @@
       timeline: 'Jan 2023 — Apr 2023',
       tags: ['OpenAI', 'Python', 'n8n', 'PostgreSQL'],
       stars: 41, forks: 7,
-      media: PLACEHOLDER_MEDIA,
+      media: [],
       summary: 'Automated content pipeline producing SEO-optimized articles, social media posts, and email campaigns at scale — with brand voice consistency and human review workflows.',
       impact: 'Increased content output by 10x while maintaining quality scores. Reduced content production costs by 65%. SEO traffic grew 180% over 4 months.',
       aiLeverage: 'Prompt chaining for multi-stage content creation: research → outline → draft → optimize. Custom style transfer model trained on brand guidelines. Automated SEO keyword integration and readability scoring.',
@@ -308,7 +311,7 @@
       timeline: 'Sep 2022 — Dec 2022',
       tags: ['Transformers', 'Python', 'FastAPI', 'Docker'],
       stars: 35, forks: 6,
-      media: PLACEHOLDER_MEDIA,
+      media: [],
       summary: 'Fine-tuned language model trained on client brand guidelines to generate on-brand copy — with tone analysis, style scoring, and iterative refinement loops.',
       impact: 'Achieved 91% brand voice consistency score (up from 62% with generic models). Reduced copywriting revision cycles from 4 rounds to 1.5 on average. Adopted by 3 creative teams internally.',
       aiLeverage: 'Fine-tuned GPT-based model on curated brand corpus. Built a discriminator model for real-time style scoring. Iterative generation loop that self-corrects based on style feedback.',
@@ -384,10 +387,10 @@
     6: {
       slug: 'embedding-models-compared',
       title: 'Embedding Models Compared: What Actually Matters for RAG',
-      tag: 'Embeddings', date: 'Jan 30, 2026', readTime: '6 min read',
+      tag: 'Embeddings', date: '4 May, 2026', readTime: '8 min read',
       image: '/assets/blogs/6bl.png',
       summary: 'I benchmarked 8 embedding models across 3 real-world datasets. The results surprised me — and changed how I build retrieval pipelines. Covers OpenAI, Cohere, BGE, E5, and others. Evaluates on retrieval precision, latency, cost, and the often-ignored dimension of domain transferability.',
-      links: { medium: '#', github: '#', inspiration: '#', resources: '#' },
+      links: { medium: 'https://medium.com/@saliimranz12/embedding-models-compared-what-actually-matters-for-rag-f17881893901' },
     },
   };
 
@@ -531,12 +534,9 @@
 
   function renderProjectCollage(slug) {
     const p = projectBySlug(slug);
-    if (!p) return '';
+    if (!p) return null;
     const media = (p.media || []).filter(Boolean);
-    if (media.length === 0) {
-      const abbr = escapeAttr(p.abbr || 'PRJ');
-      return `<div class="collage-block">${abbr}</div><div class="collage-block">${abbr}</div><div class="collage-block">${abbr}</div><div class="collage-block">${abbr}</div>`;
-    }
+    if (media.length === 0) return null;
     if (media.length <= 4) {
       return media.map(m => mediaToCollageBlock(m)).join('');
     }
@@ -551,10 +551,15 @@
       const slug = card.getAttribute('data-project-slug');
       const host = card.querySelector('.project-collage');
       if (!host) return;
+      const html = renderProjectCollage(slug);
+      if (html === null) {
+        host.remove();
+        return;
+      }
       const p = projectBySlug(slug);
       const count = p && p.media ? p.media.length : 0;
-      host.setAttribute('data-count', String(Math.min(count, 4) || 0));
-      host.innerHTML = renderProjectCollage(slug);
+      host.setAttribute('data-count', String(Math.min(count, 4)));
+      host.innerHTML = html;
     });
   }
 

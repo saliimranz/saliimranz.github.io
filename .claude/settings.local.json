@@ -6,7 +6,9 @@
       "Bash(grep -n '\\\\\\\\$150\\\\|\"150\"\\\\|\"45\"' \"d:/PO/PO_Site/services/ai-automation.html\")",
       "Bash(grep -rn '\\\\$45\\\\|\\\\$200\\\\|\"price\": \"45\"\\\\|\"price\": \"200\"\\\\|lowPrice\": \"45\"\\\\|lowPrice\": \"200\"\\\\|minPrice\": \"45\"' \"d:/PO/PO_Site\" --include=\"*.html\" --include=\"*.js\")",
       "Bash(python)",
-      "Bash(echo \"=== Any leftover \\\\\\\\x01 / \\\\\\\\x02 control bytes? ===\")"
+      "Bash(echo \"=== Any leftover \\\\\\\\x01 / \\\\\\\\x02 control bytes? ===\")",
+      "Bash(grep -nA2 \"8: {\" \"d:/PO/PO_Site/components.js\")",
+      "Bash(grep -nA1 \"slug:\" components.js)"
     ]
   }
 }

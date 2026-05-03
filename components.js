@@ -152,7 +152,10 @@
       timeline: 'Jan 2025 — Present',
       tags: ['LangChain', 'Python', 'Redis', 'FastAPI'],
       stars: 142, forks: 28,
-      media: PLACEHOLDER_MEDIA,
+      media: [
+        {type: 'image', src: '/assets/projects/appointment_ai/app1.png', alt: 'Dashboard Image'},
+        {type: 'image', src: '/assets/projects/appointment_ai/app2.png', alt: 'Schedule Image'},
+        {type: 'image', src: '/assets/projects/appointment_ai/app1.png', alt: 'History Image'},],
       summary: 'Enterprise orchestration layer coordinating specialized LLM agents across complex workflows — handling task decomposition, tool use, memory, and human-in-the-loop escalation at scale. The system processes thousands of concurrent agent sessions with sub-second routing decisions.',
       impact: 'Reduced client operational overhead by 60%. Enabled non-technical teams to define complex business workflows that previously required dedicated engineering sprints. Currently serving 3 enterprise clients in production.',
       aiLeverage: 'Multi-agent architecture with specialized agents for planning, execution, and validation. Uses ReAct pattern with custom tool integrations. Implements semantic memory via vector stores for long-running conversation context.',

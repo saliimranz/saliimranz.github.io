@@ -252,7 +252,7 @@
       tags: ['Flutter', 'Python', 'FastAPI', 'PostgreSQL', 'Redis'],
       stars: 47, forks: 8,
       media: [
-        { type: 'image', src: '/assets/projects/wms/thumb.png', alt: 'WMS Thubnail' },
+        { type: 'image', src: '/assets/projects/wms/Thumb.png', alt: 'WMS Thubnail' },
         { type: 'image', src: '/assets/projects/wms/1.png', alt: 'WMS Dashboard' },
         { type: 'image', src: '/assets/projects/wms/2.png', alt: 'WMS Order List' },
         { type: 'image', src: '/assets/projects/wms/3.png', alt: 'WMS Order Detail' },

@@ -382,7 +382,7 @@
       tag: 'Multi-Agent', date: 'Feb 14, 2026', readTime: '7 min read',
       image: '/assets/blogs/5.png',
       summary: 'Supervisor-worker, debate, and consensus patterns get all the attention. Here\'s the pattern I actually use in production — a hierarchical delegation model with typed contracts between agents. Covers why most multi-agent demos fail at scale and the specific architectural decisions that make the difference.',
-      links: { medium: '#', github: '#', inspiration: '#', resources: '#' },
+      links: { medium: 'https://medium.com/@saliimranz12/the-multi-agent-pattern-nobody-talks-about-08f17eb34f6b'},
     },
     6: {
       slug: 'embedding-models-compared',
